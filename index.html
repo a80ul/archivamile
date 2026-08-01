@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCHIVAMILE // Portofolio Desain</title>
+  <script>
+    (function () {
+      var t = localStorage.getItem('zzz-theme');
+      if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== PRELOADER ===== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-logo">
+      <span class="preloader-box"></span>
+      <span class="preloader-txt">ARCHIVAMILE//DESIGN</span>
+      <div class="preloader-bar"><i></i></div>
+    </div>
+  </div>
+
+  <!-- ===== THEME FLASH ===== -->
+  <div class="theme-flash" id="themeFlash"></div>
+
+  <!-- ===== SCROLL PROGRESS ===== -->
+  <div class="scroll-progress"><i id="scrollBar"></i></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#home" class="logo" data-logo>
+        <span class="logo-box">A</span>
+        <span class="logo-text">RCHIVAMILE<span class="logo-dot">.</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active" data-num="01"><span class="nav-txt">Home</span></a>
+        <a href="#about" class="nav-link" data-num="02"><span class="nav-txt">About</span></a>
+        <a href="#skills" class="nav-link" data-num="03"><span class="nav-txt">Skills</span></a>
+        <a href="#projects" class="nav-link" data-num="04"><span class="nav-txt">Projects</span></a>
+        <a href="#contact" class="nav-link" data-num="05"><span class="nav-txt">Contact</span></a>
+      </nav>
+
+      <div class="navbar-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema cahaya">
+          <span class="tt-sun">&#9728;</span>
+          <span class="tt-knob"></span>
+          <span class="tt-moon">&#9788;</span>
+        </button>
+        <a href="#contact" class="nav-cta">Hire Me<span class="cta-corners"></span></a>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE MENU ===== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-bg" id="mobileMenuBg"></div>
+    <nav class="mobile-menu-links">
+      <a href="#home" data-num="01">Home</a>
+      <a href="#about" data-num="02">About</a>
+      <a href="#skills" data-num="03">Skills</a>
+      <a href="#projects" data-num="04">Projects</a>
+      <a href="#contact" data-num="05">Contact</a>
+    </nav>
+    <div class="mobile-menu-foot">
+      <span>KONEKSI STABIL // 100%</span>
+      <span class="mm-static">&#9612;&#9612;&#9612;&#9612;&#9612;&#9612;&#9612;</span>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-halftone"></div>
+    <div class="hero-tv" id="heroTv"></div>
+
+    <div class="hero-hud hud-tl">SIGNAL <b id="signal">OK</b></div>
+    <div class="hero-hud hud-tr">VIDEO_00<span id="frame">01</span></div>
+    <div class="hero-hud hud-bl">LAT 0.000 / LON 0.000</div>
+    <div class="hero-hud hud-br"><span class="rec-dot"></span>REC</div>
+
+    <div class="hero-inner">
+      <p class="hero-kicker reveal">// ARCHIVAMILE — PORTOFOLIO DESAIN</p>
+      <h1 class="hero-title">
+        <span class="line line-1">
+          <span class="glitch" data-text="ARCHIVA">ARCHIVA</span>
+        </span>
+        <span class="line line-2">
+          <span class="glitch" data-text="MILE.">MILE.</span>
+        </span>
+      </h1>
+      <p class="hero-sub reveal">Halo, aku <b>Abdul Aziz</b> — founder &amp; desainer di balik <b>Archivamile</b>. Arsip karya: <span class="hl">logo &amp; identitas</span>, <span class="hl">kemasan</span>, dan <i>konten visual</i> yang bikin brand punya karakter.</p>
+      <div class="hero-cta reveal">
+        <a href="#projects" class="btn btn-red">Lihat Karya<span></span></a>
+        <a href="#contact" class="btn btn-ghost">Mulai Kolaborasi<span></span></a>
+      </div>
+    </div>
+
+    <div class="hero-scroll"><span class="scroll-txt">SCROLL</span><span class="scroll-line"></span></div>
+
+    <!-- floating ui chips -->
+    <div class="chip chip-1">GRID 12 COL</div>
+    <div class="chip chip-2">DPI 300</div>
+    <div class="chip chip-3">LAYER +12</div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>LOGO &amp; IDENTITAS&nbsp;&nbsp;&#10022;&nbsp;&nbsp;KEMASAN &amp; LABEL&nbsp;&nbsp;&#10022;&nbsp;&nbsp;KONTEN SOSMED&nbsp;&nbsp;&#10022;&nbsp;&nbsp;UI DESIGN&nbsp;&nbsp;&#10022;&nbsp;&nbsp;MOTION GRAPHICS&nbsp;&nbsp;&#10022;&nbsp;&nbsp;FOTO PRODUK&nbsp;&nbsp;&#10022;&nbsp;&nbsp;</span>
+      <span>LOGO &amp; IDENTITAS&nbsp;&nbsp;&#10022;&nbsp;&nbsp;KEMASAN &amp; LABEL&nbsp;&nbsp;&#10022;&nbsp;&nbsp;KONTEN SOSMED&nbsp;&nbsp;&#10022;&nbsp;&nbsp;UI DESIGN&nbsp;&nbsp;&#10022;&nbsp;&nbsp;MOTION GRAPHICS&nbsp;&nbsp;&#10022;&nbsp;&nbsp;FOTO PRODUK&nbsp;&nbsp;&#10022;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section about" id="about">
+    <div class="section-head reveal">
+      <span class="sec-num">[ 02 ]</span>
+      <h2 class="sec-title">ABOUT<span class="sec-title-accent">_ME</span></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <div class="about-frame">
+          <div class="about-img"><span class="avatar">Z</span></div>
+          <div class="about-tag">ID: ARCHIVAMILE</div>
+        </div>
+      </div>
+      <div class="about-info">
+        <h3 class="reveal">Halo, aku <span class="hl">Abdul Aziz</span> — founder &amp; desainer di balik brand <span class="hl">Archivamile</span>.</h3>
+        <p class="reveal">Archivamile adalah arsip karyaku: <b>logo &amp; identitas visual, desain kemasan, poster, sampai konten sosial media</b>. Prinsipku sederhana — setiap brand berhak punya wajah yang berkarakter, konsisten, dan mudah diingat.</p>
+        <div class="stats">
+          <div class="stat reveal"><b class="counter" data-target="87">0</b><span>Proyek Selesai</span></div>
+          <div class="stat reveal"><b class="counter" data-target="45">0</b><span>Klien Puas</span></div>
+          <div class="stat reveal"><b class="counter" data-target="3">0</b><span>Tahun Berjalan</span></div>
+        </div>
+        <div class="about-tags reveal">
+          <span>#Branding</span><span>#Kemasan</span><span>#Sosmed</span><span>#Motion</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section class="section skills" id="skills">
+    <div class="section-head reveal">
+      <span class="sec-num">[ 03 ]</span>
+      <h2 class="sec-title">SKILL<span class="sec-title-accent">SET</span></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-top"><span class="skill-icon">Fi</span><span class="skill-name">Figma — UI &amp; Konten Sosmed</span><span class="skill-val" data-target="95">0%</span></div>
+        <div class="skill-bar"><i data-width="95"></i></div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-top"><span class="skill-icon">Ps</span><span class="skill-name">Photoshop — Kemasan &amp; Banner</span><span class="skill-val" data-target="90">0%</span></div>
+        <div class="skill-bar"><i data-width="90"></i></div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-top"><span class="skill-icon">Ai</span><span class="skill-name">Illustrator — Logo &amp; Branding</span><span class="skill-val" data-target="88">0%</span></div>
+        <div class="skill-bar"><i data-width="88"></i></div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-top"><span class="skill-icon">Ae</span><span class="skill-name">After Effects — Motion Iklan</span><span class="skill-val" data-target="80">0%</span></div>
+        <div class="skill-bar"><i data-width="80"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="section projects" id="projects">
+    <div class="section-head reveal">
+      <span class="sec-num">[ 04 ]</span>
+      <h2 class="sec-title">PORTFOLIO<span class="sec-title-accent">_Z</span></h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <!-- ===== CARA PASANG EMBED BEHANCE — hapus blok ini setelah diisi ===== -->
+    <div class="embed-guide reveal">
+      <b class="eg-title">[ CARA PASANG KARYA DARI BEHANCE ]</b>
+      <span>1. Buka proyek kamu di <b>behance.net</b> &#8594; klik <b>Share</b> &#8594; <b>Embed</b> &#8594; salin kode <code>&lt;iframe src="https://www.behance.net/embed/project/..."&gt;</code></span>
+      <span>2. Ganti <code>src</code> pada 3 kartu di bawah dengan kode embed proyek kamu (bisa hapus kartu &amp; tambah sendiri).</span>
+    </div>
+
+    <div class="projects-grid">
+      <article class="proj-card reveal">
+        <div class="behance-embed">
+          <iframe src="https://www.behance.net/embed/project/999999999?ilo0=1" allowfullscreen lazyload frameborder="0" allow="clipboard-write" referrerPolicy="strict-origin-when-cross-origin" title="Proyek Behance"></iframe>
+          <span class="embed-overlay">BEHANCE // EMBED</span>
+          <span class="proj-idx">01</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat">REBRANDING</span>
+          <h3>Warung Bu Rina</h3>
+          <p>Logo baru, brand color, dan menu board — studi kasus rebranding paling seru.</p>
+          <div class="proj-tech"><span>Illustrator</span><span>Figma</span></div>
+          <a href="https://www.behance.net/archivamile" target="_blank" rel="noopener" class="proj-link">Lihat di Behance &#8594;</a>
+        </div>
+      </article>
+      <article class="proj-card reveal">
+        <div class="behance-embed">
+          <iframe src="https://www.behance.net/embed/project/999999999?ilo0=1" allowfullscreen lazyload frameborder="0" allow="clipboard-write" referrerPolicy="strict-origin-when-cross-origin" title="Proyek Behance"></iframe>
+          <span class="embed-overlay">BEHANCE // EMBED</span>
+          <span class="proj-idx">02</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat">KEMASAN PRODUK</span>
+          <h3>Keripik Mas Joko</h3>
+          <p>Desain kemasan &amp; label snack — dari plastik polos jadi produk stand-by.</p>
+          <div class="proj-tech"><span>Photoshop</span><span>Cetak</span></div>
+          <a href="https://www.behance.net/archivamile" target="_blank" rel="noopener" class="proj-link">Lihat di Behance &#8594;</a>
+        </div>
+      </article>
+      <article class="proj-card reveal">
+        <div class="behance-embed">
+          <iframe src="https://www.behance.net/embed/project/999999999?ilo0=1" allowfullscreen lazyload frameborder="0" allow="clipboard-write" referrerPolicy="strict-origin-when-cross-origin" title="Proyek Behance"></iframe>
+          <span class="embed-overlay">BEHANCE // EMBED</span>
+          <span class="proj-idx">03</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat">KONTEN SOSMED</span>
+          <h3>Es Teh Sari</h3>
+          <p>Template konten Instagram 30 hari + motion ads untuk brand minuman.</p>
+          <div class="proj-tech"><span>Figma</span><span>After Effects</span></div>
+          <a href="https://www.behance.net/archivamile" target="_blank" rel="noopener" class="proj-link">Lihat di Behance &#8594;</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section contact" id="contact">
+    <div class="section-head reveal">
+      <span class="sec-num">[ 05 ]</span>
+      <h2 class="sec-title">CONTACT<span class="sec-title-accent">_ME</span></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Mau punya brand yang <span class="hl">berkarakter</span>?</h3>
+        <p>Butuh logo, kemasan, atau konten sosmed yang menarik? Kirim brief-mu — aku balas dalam 24 jam (kecuali lagi ngumpulin referensi di Hollow).</p>
+        <div class="contact-channels">
+          <a href="#" class="channel">EMAIL — <b>aziz@archivamile.my.id</b></a>
+          <a href="#" class="channel">WEBSITE — <b>archivamile.my.id</b></a>
+          <a href="#" class="channel">INSTAGRAM — <b>@archivamile.design</b></a>
+        </div>
+      </div>
+      <form class="contact-form reveal" id="contactForm">
+        <label>NAMA_AGENT</label>
+        <input type="text" placeholder="Nama kamu" required>
+        <label>EMAIL_KONTAK</label>
+        <input type="email" placeholder="email@kamu.com" required>
+        <label>PESAN_MISI</label>
+        <textarea rows="4" placeholder="Ceritakan brief desain kamu..." required></textarea>
+        <button type="submit" class="btn btn-red form-btn">Kirim Sinyal<span></span></button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-noise"></div>
+    <p>&copy; 2026 ARCHIVAMILE — archivamile.my.id. Dirancang dengan <span class="hl">kode</span> &amp; ether.</p>
+    <div class="footer-meta">
+      <span>ARCHIVAMILE // PORTOFOLIO DESAIN</span>
+      <span class="footer-static">&#9618;&#9618;&#9618;&#9618;</span>
+    </div>
+  </footer>
+
+  <!-- cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
