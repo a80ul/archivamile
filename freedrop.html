@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REQUEST // ARCIVAMILE — Aset Desain Gratis</title>
+  <title>FREE DROP — ASET DESAIN GRATIS</title>
   <script>
     (function () {
       var t = localStorage.getItem('zzz-theme');
@@ -39,10 +39,10 @@
           <path d="M33.2 10 L35.6 12.4 L33.2 14.8 L30.8 12.4 Z" fill="#ffd400"/>
         </svg>
       </div>
-      <h1 class="intro-name" id="introName">REQUEST</h1>
-      <p class="intro-sub">FREE DROP // ARCIVAMILE</p>
+      <h1 class="intro-name" id="introName">FREE DROP</h1>
+      <p class="intro-sub">ARSIP ASET GRATIS // ARCIVAMILE</p>
       <div class="intro-bar"><i></i></div>
-      <p class="intro-loading">MEMBUKA REQUEST<span class="load-dots">...</span></p>
+      <p class="intro-loading">MEMBUKA FREEBIES<span class="load-dots">...</span></p>
     </div>
   </div>
 
@@ -82,9 +82,9 @@
       <span class="nav-stripe" aria-hidden="true"></span>
 
       <nav class="nav-links" id="navLinks">
-        <a href="freedrop" class="nav-link" data-num="01"><span class="nav-txt">Free Drop</span></a>
+        <a href="freedrop" class="nav-link active" data-num="01"><span class="nav-txt">Free Drop</span></a>
         <a href="arsip" class="nav-link" data-num="02"><span class="nav-txt">Arsip</span></a>
-        <a href="request" class="nav-link active" data-num="03"><span class="nav-txt">Request</span></a>
+        <a href="request" class="nav-link" data-num="03"><span class="nav-txt">Request</span></a>
         <span class="nav-indicator" id="navIndicator"></span>
       </nav>
 
@@ -107,17 +107,17 @@
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-bg" id="mobileMenuBg"></div>
     <nav class="mobile-menu-links">
-      <a href="freedrop" data-num="01">Free Drop</a>
+      <a href="freedrop" data-num="01" class="active">Free Drop</a>
       <a href="arsip" data-num="02">Arsip</a>
-      <a href="request" data-num="03" class="active">Request</a>
+      <a href="request" data-num="03">Request</a>
     </nav>
     <div class="mobile-menu-foot">
-      <span>LINK AKTIF // REQUEST</span>
+      <span>LINK AKTIF // HOME</span>
       <span class="mm-static">&#9612;&#9612;&#9612;&#9612;&#9612;&#9612;&#9612;</span>
     </div>
   </div>
 
-  <!-- ===== HERO REQUEST ===== -->
+  <!-- ===== HERO FREEBIES ===== -->
   <section class="fd-hero" id="top">
     <div class="hero-halftone"></div>
     <div class="fd-grid-bg" aria-hidden="true"></div>
@@ -131,92 +131,129 @@
         <line x1="70" y1="50" x2="82" y2="50"/>
       </g>
     </svg>
-    <div class="fd-vert vert-l">REQUEST ASET // VOL.01</div>
-    <div class="fd-vert vert-r">KIRIM / ARCIVAMILE</div>
+    <div class="fd-vert vert-l">ASET GRATIS // VOL.01</div>
+    <div class="fd-vert vert-r">DOWNLOAD / ARCIVAMILE</div>
 
     <div class="fd-hero-inner">
       <div class="hero-brackets" aria-hidden="true">
         <i class="br-tl"></i><i class="br-tr"></i><i class="br-bl"></i><i class="br-br"></i>
       </div>
-      <p class="hero-kicker reveal">// FREE DROP — PERMINTAAN ASET</p>
+      <p class="hero-kicker reveal">ARSIP ASET DESAIN GRATIS</p>
       <h1 class="fd-title">
         <span class="line line-1">
-          <span class="glitch" data-text="REQUEST">REQUEST</span>
+          <span class="glitch" data-text="FREE">FREE</span>
         </span>
         <span class="line line-2">
-          <span class="glitch" data-text="ASET.">ASET.</span>
+          <span class="glitch" data-text="DROP.">DROP.</span>
         </span>
       </h1>
-      <p class="hero-sub reveal">Ada aset impian yang belum ada di arsip? <span class="hl">Tulis sarannya</span> — mungkin akan dirilis di update mendatang.</p>
+      <p class="hero-sub reveal">Aset desain <b>gratis</b> dari Arcivamile — Unduh, Gunakan, dan Nikmati. Kredit bersifat opsional.</p>
+      <div class="fd-chips reveal">
+        <span class="fd-chip">100% GRATIS</span>
+        <span class="fd-chip fd-chip-yellow">FILE SIAP PAKAI</span>
+        <span class="fd-chip">SARAN ASET</span>
+        <span class="fd-chip fd-chip-fill">NO PAYWALL</span>
+      </div>
+      <div class="fd-stats reveal">
+        <div class="fd-stat"><b id="statArsip">07</b><span>ARSIP</span></div>
+        <div class="fd-stat"><b id="statKategori">07</b><span>KATEGORI</span></div>
+        <div class="fd-stat"><b>100%</b><span>GRATIS</span></div>
+        <div class="fd-stat"><b>FREE</b><span>LICENSE</span></div>
+      </div>
     </div>
 
     <div class="fd-tape" aria-hidden="true"></div>
     <div class="hero-fade" aria-hidden="true"></div>
   </section>
 
-  <!-- ===== REQUEST ASET ===== -->
-  <section class="section fd-section" id="request">
-    <div class="section-head reveal">
-      <span class="sec-num">[ 01 ]</span>
-      <h2 class="sec-title">REQUEST<span class="sec-title-accent">SET</span></h2>
-      <div class="sec-line"></div>
-    </div>
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee marquee-static">
+    <div class="marquee-track" id="mqInfo"></div>
+  </div>
 
-    <div class="fd-req-grid">
-      <div class="fd-req-form reveal">
-        <span class="fd-req-tag">FORM // SARAN ASET</span>
-        <h3>Ada aset yang <span class="hl">kamu mau?</span></h3>
-        <p>Tulis saran aset impianmu di bawah. Saran akan dipertimbangkan untuk dirilis — tapi tidak dijamin pasti dibuat.</p>
-
-        <span class="fd-req-sub">PILIH KATEGORI CEPAT</span>
-        <div class="fd-req-chips">
-          <button type="button" class="fd-req-chip" data-val="Logo pack">Logo</button>
-          <button type="button" class="fd-req-chip" data-val="Font">Font</button>
-          <button type="button" class="fd-req-chip" data-val="PNG element">PNG</button>
-          <button type="button" class="fd-req-chip" data-val="JPG image">JPG</button>
-        </div>
-
-        <form id="reqForm" class="contact-form">
-          <label for="reqInput">NAMA ASET / KATEGORI</label>
-          <input type="text" id="reqInput" placeholder="contoh: logo pack kosmetik, font display, png elemen..." required>
-          <button type="submit" class="form-btn" id="reqBtn">KIRIM SARAN &#8594;</button>
-        </form>
-        <p class="fd-req-note">GRATIS // SARAN DIPERTIMBANGKAN // TANPA JAMINAN</p>
-        <div class="fd-req-ok" id="reqOk">
-          <span class="fd-req-check">
-            <svg viewBox="0 0 52 52" aria-hidden="true">
-              <circle class="fd-ck-circle" cx="26" cy="26" r="24"/>
-              <path class="fd-ck-mark" d="M14.5 27 L23 35.5 L38 17.5"/>
-            </svg>
-          </span>
-          <h4>SARAN MASUK DAFTAR RILIS!</h4>
-          <p>Terima kasih — saranmu dipertimbangkan untuk rilis berikutnya.</p>
-          <span class="fd-req-shine" aria-hidden="true"></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA ===== -->
-  <section class="fd-cta">
+  <!-- ===== TENTANG WEB INI ===== -->
+  <section class="fd-cta" id="tentang">
     <div class="hero-halftone"></div>
     <div class="fd-cta-inner reveal">
-      <span class="cp-label">SINYAL TERHUBUNG // 100%</span>
-      <h2 class="fd-cta-title">CEK DULU <span class="hl">ARSIPNYA</span></h2>
-      <p>Sebelum minta, lihat dulu kumpulan aset gratis yang sudah ada — siapa tahu aset impianmu sudah ada di sana.</p>
+      <span class="cp-label">TENTANG WEB INI // ARCIVAMILE</span>
+      <h2 class="fd-cta-title">ARSIP ASET DESAIN GRATIS<BR><span class="hl">100% KARYA ASLI</span></h2>
+      <p><b>FREE DROP</b> adalah arsip aset desain gratis dari <b>Arcivamile</b>. Semua aset — <span class="hl">logo</span>, <span class="hl">font</span>, <span class="hl">PNG</span>, dan <span class="hl">JPG</span> — dibuat sendiri dari nol, tanpa ada karya kreator lain yang dibagikan ulang, jadi aman dipakai tanpa melanggar hak cipta.</p>
+      <p>Web ini hadir supaya siapa pun bisa mendapat aset desain berkualitas tanpa biaya: buat konten, branding, poster, atau proyek lainnya dengan mudah. Semua aset gratis untuk penggunaan <b>personal &amp; komersial</b>. Kredit kepada Arcivamile tidak wajib, tapi sangat dihargai. Kamu juga bisa mengirim saran aset yang belum ada di arsip lewat halaman Request — saran akan dipertimbangkan untuk dirilis.</p>
+      <div class="fd-chips">
+        <span class="fd-chip">100% GRATIS</span>
+        <span class="fd-chip fd-chip-yellow">FILE SIAP PAKAI</span>
+        <span class="fd-chip">SARAN ASET</span>
+        <span class="fd-chip fd-chip-fill">NO PAYWALL</span>
+      </div>
       <div class="hero-cta">
         <a href="arsip" class="btn btn-red">Lihat Arsip<span></span></a>
-        <a href="freedrop" class="btn btn-ghost">Kembali ke Free Drop<span></span></a>
+        <a href="request" class="btn btn-ghost">Ajukan Permintaan<span></span></a>
       </div>
     </div>
   </section>
 
-  <!-- ===== LANJUT KE FREE DROP ===== -->
+  <!-- ===== KENAPA FREE DROP ===== -->
+  <section class="section fd-section" id="kenapa">
+    <div class="section-head reveal">
+      <span class="sec-num">[ 01 ]</span>
+      <h2 class="sec-title">KENAPA<span class="sec-title-accent">FREE DROP?</span></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="fd-home-grid">
+      <div class="fd-feature reveal"><i>// 01</i><h3>100% Karya Asli</h3><p>Setiap aset dibuat sendiri dari nol oleh Arcivamile. Tidak ada aset kreator lain yang dibagikan ulang, jadi kamu aman dari masalah hak cipta.</p></div>
+      <div class="fd-feature reveal"><i>// 02</i><h3>Gratis Personal &amp; Komersial</h3><p>Semua aset bebas dipakai untuk proyek pribadi maupun komersial. Kredit tidak wajib, tapi sangat dihargai sebagai bentuk dukungan.</p></div>
+      <div class="fd-feature reveal"><i>// 03</i><h3>Resolusi Tinggi</h3><p>Aset dibuat dengan kualitas dan resolusi yang layak untuk kebutuhan desain profesionalmu.</p></div>
+      <div class="fd-feature reveal"><i>// 04</i><h3>Tanpa Paywall</h3><p>Semua file bisa langsung diunduh tanpa bayar dan tanpa daftar. Yang kamu butuhkan hanya verifikasi manusia sebagai anti-spam.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== KATEGORI ASET ===== -->
+  <section class="section fd-section" id="kategori">
+    <div class="section-head reveal">
+      <span class="sec-num">[ 02 ]</span>
+      <h2 class="sec-title">KATEGORI<span class="sec-title-accent">ASET</span></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="fd-cat-grid">
+      <a class="fd-cat-tile reveal" href="arsip" style="--tc:#e4002b"><b>LOGO</b><span>Pack logo &amp; elemen identitas</span></a>
+      <a class="fd-cat-tile reveal" href="arsip" style="--tc:#ff9a00"><b>FONT</b><span>Tipografi untuk berbagai gaya</span></a>
+      <a class="fd-cat-tile reveal" href="arsip" style="--tc:#ff5a75"><b>PNG</b><span>Elemen transparan siap pakai</span></a>
+      <a class="fd-cat-tile reveal" href="arsip" style="--tc:#8a8aff"><b>JPG</b><span>Gambar &amp; latar resolusi tinggi</span></a>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section fd-section" id="faq">
+    <div class="section-head reveal">
+      <span class="sec-num">[ 03 ]</span>
+      <h2 class="sec-title">TANYA<span class="sec-title-accent">JAWAB</span></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="fd-faq">
+      <details class="fd-faq-item reveal"><summary>Apakah semua aset di sini gratis?</summary><p>Ya. Semua aset 100% gratis untuk penggunaan personal maupun komersial. Kredit bersifat opsional — kalau dibuat, kami sangat menghargainya.</p></details>
+      <details class="fd-faq-item reveal"><summary>Bolehkah membagikan ulang aset ini?</summary><p>Tidak. Semua aset adalah karya asli Arcivamile dan dilarang diunggah ulang dalam bentuk apa pun. Bagikan link halaman ini, bukan filenya.</p></details>
+      <details class="fd-faq-item reveal"><summary>Kenapa harus verifikasi sebelum unduh?</summary><p>Verifikasi manusia dan masa tunggu dipasang untuk mencegah spam unduhan oleh bot, supaya server dan link download tetap aman.</p></details>
+      <details class="fd-faq-item reveal"><summary>Aset yang dicari tidak ada, gimana?</summary><p>Ajukan saran lewat halaman Request. Saran akan dipertimbangkan untuk dirilis — tidak dijamin pasti dibuat.</p></details>
+      <details class="fd-faq-item reveal"><summary>Bagaimana cara mendukung Arcivamile?</summary><p>Bagikan link web ini ke teman, beri kredit saat memakai aset (opsional), atau dukung lewat Saweria di bagian bawah halaman.</p></details>
+    </div>
+  </section>
+  <!-- ===== LANJUT KE ARSIP ===== -->
   <section class="fd-next">
-    <a href="freedrop" class="fd-next-link">
-      <span class="fd-next-label">KEMBALI // KE FREE DROP</span>
-      <span class="fd-next-title">FREE DROP<span class="fd-next-arrow">&#8594;</span></span>
+    <a href="arsip" class="fd-next-link">
+      <span class="fd-next-label">LANJUT // HALAMAN BERIKUT</span>
+      <span class="fd-next-title">ARSIP<span class="fd-next-arrow">&#8594;</span></span>
     </a>
+  </section>
+
+  <!-- ===== DONASI ===== -->
+  <section class="fd-donate" id="donasi">
+    <div class="hero-halftone"></div>
+    <div class="fd-donate-inner reveal">
+      <span class="fd-donate-badge">DUKUNG WEB INI</span>
+      <h3>SAWERIN <span class="hl">DONG!</span></h3>
+      <p>Semua aset di sini gratis dan tetap begini selamanya. Kalau web ini membantu proyekmu, kamu bisa mendukung pengembangan arsip ini lewat Saweria — sekecil apa pun sangat berarti.</p>
+      <a href="https://saweria.co/Acivamile" target="_blank" rel="noopener" class="btn btn-red">SAWERIA &#8599;<span></span></a>
+    </div>
   </section>
 
   <!-- ===== FOOTER ===== -->

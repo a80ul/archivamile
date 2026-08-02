@@ -349,17 +349,84 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---------- POPUP DOKUMEN LEGAL (terms, privasi, lisensi, hak cipta) ---------- */
+  const legalModal = document.getElementById('fdLegalModal');
+  if (legalModal) {
+    const legalBg = document.getElementById('fdLegalBg');
+    const legalClose = document.getElementById('legalClose');
+    const legalCat = document.getElementById('legalCat');
+    const legalTitle = document.getElementById('legalTitle');
+    const legalBody = document.getElementById('legalBody');
+
+    const LEGAL_DOCS = {
+      terms: {
+        cat: 'LEGAL // TERMS',
+        title: 'Syarat & Ketentuan',
+        body: '<h4>1. Penerimaan Ketentuan</h4><p>Dengan mengakses atau menggunakan situs FREE DROP milik Arcivamile, kamu dianggap telah membaca, memahami, dan menyetujui seluruh ketentuan di bawah ini. Jika tidak setuju, mohon berhenti menggunakan layanan ini.</p><h4>2. Penggunaan Layanan</h4><p>Layanan ini menyediakan aset desain digital (logo, font, PNG, dan JPG) secara gratis untuk membantu kebutuhan desainmu. Semua aset disediakan "apa adanya" tanpa jaminan tertentu.</p><h4>3. Hak Penggunaan Aset</h4><p>Seluruh aset di situs ini boleh digunakan untuk keperluan personal maupun komersial. Kredit kepada Arcivamile bersifat opsional — tidak diwajibkan, namun sangat dihargai jika diberikan. Hak cipta atas aset tetap milik pembuatnya.</p><h4>4. Larangan</h4><p>Dilarang keras untuk: (a) mengunggah ulang atau membagikan ulang aset dalam bentuk apa pun, termasuk ke platform lain, grup, atau channel; (b) menjual kembali aset tanpa izin tertulis; (c) mengklaim aset sebagai karya sendiri; (d) menggunakan aset untuk konten ilegal atau menyesatkan.</p><h4>5. Perubahan Ketentuan</h4><p>Ketentuan ini dapat diperbarui sewaktu-waktu. Perubahan berlaku saat diumumkan di halaman ini, dan penggunaan lanjutan setelah perubahan dianggap sebagai persetujuan.</p><h4>6. Batasan Tanggung Jawab</h4><p>Arcivamile tidak bertanggung jawab atas kerugian apa pun yang timbul akibat penggunaan aset atau layanan ini. Semua aset dipakai dengan risiko pengguna masing-masing.</p>'
+      },
+      privacy: {
+        cat: 'LEGAL // PRIVACY',
+        title: 'Kebijakan Privasi',
+        body: '<h4>1. Informasi yang Kami Kumpulkan</h4><p>Situs ini tidak memerlukan pendaftaran akun dan tidak mengumpulkan data pribadi seperti nama, email, atau nomor telepon. Data yang tersimpan hanya di perangkatmu sendiri (localStorage) berupa preferensi tema dan pencatat waktu unduhan untuk mencegah spam.</p><h4>2. Verifikasi Manusia</h4><p>Untuk mencegah spam unduhan, situs menggunakan Cloudflare Turnstile. Widget ini dapat memproses data teknis perangkatmu sesuai Kebijakan Privasi Cloudflare (cloudflare.com/privacy).</p><h4>3. Cookie &amp; Penyimpanan Lokal</h4><p>Kami menggunakan localStorage untuk menyimpan preferensi tema dan waktu unduhan terakhir. Kamu dapat menghapusnya kapan saja lewat pengaturan browser.</p><h4>4. Berbagi Data</h4><p>Kami tidak menjual, menyewakan, atau membagikan data pengguna kepada pihak ketiga, kecuali diwajibkan oleh hukum atau untuk keperluan keamanan layanan.</p><h4>5. Keamanan</h4><p>Seluruh aset dan halaman disajikan melalui koneksi aman (HTTPS). Meski demikian, tidak ada metode transmisi data yang 100% aman.</p><h4>6. Kontak</h4><p>Jika ada pertanyaan seputar kebijakan privasi, hubungi kami melalui halaman Request atau email resmi Arcivamile.</p>'
+      },
+      license: {
+        cat: 'LEGAL // LICENSE',
+        title: 'Lisensi Aset',
+        body: '<h4>1. Lisensi</h4><p>Setiap aset di arsip ini dirilis di bawah lisensi gratis Arcivamile, yang mengizinkan penggunaan personal dan komersial tanpa biaya.</p><h4>2. Kredit</h4><p>Kredit bersifat sukarela dan tidak wajib. Jika kamu ingin menyebutkannya, contohnya menulis "Aset oleh Arcivamile" atau menautkan situs ini saat aset dipakai publik.</p><h4>3. Modifikasi</h4><p>Kamu bebas memodifikasi aset sesuai kebutuhan proyekmu, termasuk mengubah warna, bentuk, atau menggabungkannya dengan karya lain.</p><h4>4. Yang Tidak Diizinkan</h4><p>Membagikan ulang aset dalam bentuk mentah/awal, mengunggah ulang ke situs lain, menjual kembali file aslinya, atau mengklaimnya sebagai karya sendiri. Bagikan link halaman ini, bukan filenya.</p><h4>5. Sifat Lisensi</h4><p>Lisensi bersifat non-eksklusif, tidak dapat dipindahtangankan, dan dapat dicabut jika ketentuan dilanggar.</p><h4>6. Pertanyaan</h4><p>Untuk penggunaan di luar ketentuan di atas (misalnya lisensi komersial khusus), ajukan permintaan melalui halaman Request.</p>'
+      },
+      copyright: {
+        cat: 'LEGAL // COPYRIGHT',
+        title: 'Hak Cipta',
+        body: '<h4>1. Kepemilikan</h4><p>Seluruh aset, desain, dan konten di situs ini adalah karya asli Arcivamile dan dilindungi undang-undang hak cipta yang berlaku.</p><h4>2. Hak Kekayaan Intelektual</h4><p>Logo, merek, dan identitas "Arcivamile" serta "FREE DROP" merupakan bagian dari identitas merek dan tidak boleh digunakan tanpa izin untuk tujuan yang tidak terkait.</p><h4>3. Penggunaan</h4><p>Hak cipta atas aset tetap milik Arcivamile meskipun file sudah diunduh. Lisensi penggunaan diberikan lewat dokumen Lisensi Aset.</p><h4>4. Pelanggaran</h4><p>Mengunggah ulang, menjual, atau mengklaim aset sebagai milik sendiri merupakan pelanggaran hak cipta dan dapat dikenakan tuntutan sesuai hukum yang berlaku.</p><h4>5. Dukungan</h4><p>Cara terbaik mendukung kami: bagikan link resmi situs ini, beri kredit saat memakai aset (opsional), dan dukung lewat Saweria.</p><h4>6. Kontak</h4><p>Untuk izin khusus atau pelaporan pelanggaran, hubungi melalui halaman Request.</p>'
+      }
+    };
+
+    const closeLegal = () => {
+      legalModal.classList.remove('show');
+      document.body.style.overflow = '';
+    };
+
+    const openLegal = (key) => {
+      const doc = LEGAL_DOCS[key];
+      if (!doc) return;
+      legalCat.textContent = doc.cat;
+      legalTitle.textContent = doc.title;
+      legalBody.innerHTML = doc.body;
+      legalModal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    };
+
+    document.querySelectorAll('[data-legal]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        openLegal(a.dataset.legal);
+      });
+    });
+    legalBg.addEventListener('click', closeLegal);
+    legalClose.addEventListener('click', closeLegal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && legalModal.classList.contains('show')) closeLegal();
+    });
+  }
+
   /* ---------- FORM REQUEST ASET (kirim ke WhatsApp / Email + animasi sukses) ---------- */
   const reqForm = document.getElementById('reqForm');
   const reqInput = document.getElementById('reqInput');
   const reqOk = document.getElementById('reqOk');
   if (reqForm) {
+    document.querySelectorAll('.fd-req-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        reqInput.value = chip.dataset.val || '';
+        reqInput.focus();
+      });
+    });
+
     reqForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const val = reqInput.value.trim();
       if (!val) return;
 
-      const msg = 'Halo Tim Arcivamile! Aku minta aset gratis di FREE DROP: ' + val + ' — terima kasih!';
+      const msg = 'Halo Arcivamile! Saran aset untuk FREE DROP: ' + val + ' — terima kasih!';
       if (REQUEST_WA) {
         window.open('https://wa.me/' + REQUEST_WA + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
       } else {
@@ -400,8 +467,67 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
   });
 
+  /* ---------- MARQUEE INFO (freedrop) — pesan informasi acak ---------- */
+  const mqInfo = document.getElementById('mqInfo');
+  if (mqInfo) {
+    const pool = [
+      'Setiap aset di arsip ini dibuat dari nol dengan tangan sendiri, bukan hasil unduhan ulang',
+      'Gunakan dengan bebas untuk proyek personal maupun komersial, tanpa biaya sepeser pun',
+      'Kredit tidak wajib, tapi sempatkan membagikan link web ini kepada yang membutuhkan',
+      'Dilarang keras mengunggah ulang aset ini di platform lain dalam bentuk apa pun',
+      'Aset yang kamu cari belum ada? Sampaikan sarannya, dan itu akan dipertimbangkan',
+      'Pertahankan web ini tetap gratis selamanya dengan dukunganmu lewat Saweria',
+      'Unduh langsung tanpa akun, tanpa daftar, tanpa paywall, sekali buka langsung dapat',
+      'Verifikasi anti-spam terpasang untuk menjaga server tetap ramah bagi semua pengunjung',
+      'Setiap karya lahir dari proses panjang: riset, desain, dan revisi tanpa henti',
+      'Jangan bagikan file-nya, bagikan linknya supaya semua orang mendapat versi terbaru',
+      'Aset dirancang khusus untuk kebutuhan desain modern, dari branding sampai konten sosial media',
+      'Semua file diarsipkan dengan rapi, diberi nama jelas, dan siap pakai dalam hitungan detik',
+      'Arsip ini terus bertambah seiring waktu, jadi mampir lagi untuk melihat karya-karya terbaru',
+      'Dibuat dengan ketelitian tinggi supaya hasil akhirmu tampil profesional dan memukau',
+      'Berbagi itu indah, tapi berbagi karya orang lain tanpa izin tidaklah keren',
+      'Satu halaman, banyak aset gratis: logo, font, PNG, dan JPG dalam satu arsip'
+    ];
+    const seq = [];
+    while (pool.length) {
+      seq.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+    }
+    const build = (arr) => arr.map(t =>
+      '<span class="mq-word"><i>' + t + '</i></span><span class="mq-sep">//</span>'
+    ).join('');
+    mqInfo.innerHTML = build(seq) + build(seq);
+  }
+
+  /* ---------- MARQUEE — gerak halus + melambat saat hover (sinkron) ---------- */
+  const marqueeTracks = document.querySelectorAll('.marquee-track');
+  if (marqueeTracks.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    marqueeTracks.forEach(track => {
+      const spans = track.querySelectorAll('span');
+      const half = Math.floor(spans.length / 2);
+      let halfWidth = 0;
+      for (let i = 0; i < half; i++) halfWidth += spans[i].offsetWidth;
+      if (halfWidth <= 0) return;
+      const base = Math.min(halfWidth / 64, 64);
+      const marquee = track.closest('.marquee');
+      let pos = 0;
+      let speed = base;
+      let last = performance.now();
+      const loop = (now) => {
+        const dt = Math.min(0.05, (now - last) / 1000);
+        last = now;
+        const target = marquee.matches(':hover') ? base * 0.12 : base;
+        speed += (target - speed) * Math.min(1, dt * 5);
+        pos -= speed * dt;
+        if (pos <= -halfWidth) pos += halfWidth;
+        track.style.transform = 'translateX(' + pos + 'px)';
+        requestAnimationFrame(loop);
+      };
+      requestAnimationFrame(loop);
+    });
+  }
+
   /* ---------- TRANSISI HALUS ANTAR HALAMAN (fade out sebelum pindah) ---------- */
-  document.querySelectorAll('a[href^="index"], a[href^="arsip"], a[href^="request"], a[href$=".html"]').forEach(a => {
+  document.querySelectorAll('a[href^="freedrop"], a[href^="arsip"], a[href^="request"], a[href$=".html"]').forEach(a => {
     a.addEventListener('click', (e) => {
       const href = a.getAttribute('href');
       if (!href || href.indexOf('://') !== -1) return;
