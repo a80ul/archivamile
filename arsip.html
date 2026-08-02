@@ -187,31 +187,29 @@
 
     <!--
       ============================================================
-      CARA TAMBAH ASET BARU (baca sekali, lalu tinggal salin-tempel)
+      CARA ISI ARSIP (tinggal ganti isinya, tanpa JS apa pun)
       ------------------------------------------------------------
-      1. Setiap kategori punya blok kartunya sendiri di bawah ini,
-         dipisah komentar ===== NAMA KATEGORI =====.
-      2. Nambah aset: salin satu blok <article class="fd-card">
-         di kategori yang sama, tempel tepat di bawahnya, lalu ganti:
-           - data-creator : tulis "Karya Asli — Arcivamile"
-                            (arsip ini 100% buatan sendiri, DILARANG
-                            upload ulang aset kreator lain — melanggar
-                            hak cipta walau lisensinya PU/CU)
-           - data-date    : tanggal upload
+      1. Tiap kategori di bawah sudah punya 1 kartu contoh.
+         Tinggal ganti:
+           - data-date    : tanggal upload (contoh: 14 Feb 2026)
            - data-format  : format file (contoh: AI / PNG)
            - data-size    : ukuran file (contoh: 10 MB)
            - data-license : lisensi (contoh: Free personal & commercial)
-           - src gambar   : taruh gambar di folder img/thumb/
-                            lalu tulis src="img/thumb/nama-file.png"
+           - data-creator : TETAP "Karya Asli — Arcivamile"
+              (arsip ini 100% buatan sendiri. DILARANG upload ulang
+              aset kreator lain — melanggar hak cipta walau PU/CU)
+           - <h3>         : nama aset
+           - <p>          : deskripsi isi pack
+           - src gambar   : taruh di img/thumb/ lalu tulis
+                            src="img/thumb/nama-file.png"
            - href="#"     : ganti # dengan link download asli
-                            (Google Drive, Mediafire, dll)
-      3. Hapus <span class="fd-card-badge">CONTOH... bila kartunya
-         sudah jadi aset beneran.
-      4. Jumlah kartu di fdCount, stat "ARSIP / KATEGORI" di hero,
-         dan animasi pop terhitung OTOMATIS dari blok yang ada.
-      ------------------------------------------------------------
-      Blok kartu siap-salin versi terpisah juga ada di file
-      template-kartu.html (bisa dibuka di browser buat salin).
+                            (Google Drive / Mediafire / dll)
+      2. Nambah aset lagi: salin 1 blok <article class="fd-card">,
+         tempel tepat di bawah kartu kategorinya, lalu isi seperti di atas.
+      3. Saat aset sudah jadi beneran, HAPUS baris ini:
+         <span class="fd-card-badge">CONTOH // ISI DATA</span>
+      4. Jumlah di fdCount, stat "ARSIP / KATEGORI" di hero, dan
+         animasi pop semuanya OTOMATIS mengikuti jumlah kartu.
       ============================================================
     -->
 
@@ -220,8 +218,15 @@
       <!-- ============================================================
            ====== KATEGORI LOGO  //  warna #e4002b ======
            ============================================================ -->
-      <!-- <article class="fd-card reveal" data-cat="logo" style="--tc:#e4002b" data-creator="Karya Asli — Arcivamile" data-date="1 Jan 2026" data-format="AI / PNG" data-size="10 MB" data-license="Free personal &amp; commercial">
-        <span class="fd-card-badge">CONTOH // SALIN &amp; ISI</span>
+      <article class="fd-card reveal"
+        data-cat="logo"
+        style="--tc:#e4002b"
+        data-creator="Karya Asli — Arcivamile"
+        data-date="1 Jan 2026"
+        data-format="AI / PNG"
+        data-size="10 MB"
+        data-license="Free personal &amp; commercial">
+        <span class="fd-card-badge">CONTOH // ISI DATA</span>
         <div class="fd-tile">
           <img class="fd-thumb" src="img/thumb/contoh-logo.png" alt="Logo Pack [NAMA KAMU]" onerror="this.remove()">
           <span>L</span>
@@ -236,13 +241,20 @@
           </div>
           <a href="#" target="_blank" rel="noopener" class="fd-btn">DOWNLOAD &#8595;<span></span></a>
         </div>
-      </article> -->
+      </article>
 
       <!-- ============================================================
            ====== KATEGORI FONT  //  warna #ff9a00 ======
            ============================================================ -->
-      <!-- <article class="fd-card reveal" data-cat="font" style="--tc:#ff9a00" data-creator="Karya Asli — Arcivamile" data-date="1 Jan 2026" data-format="TTF / OTF" data-size="5 MB" data-license="Free personal &amp; commercial">
-        <span class="fd-card-badge">CONTOH // SALIN &amp; ISI</span>
+      <article class="fd-card reveal"
+        data-cat="font"
+        style="--tc:#ff9a00"
+        data-creator="Karya Asli — Arcivamile"
+        data-date="1 Jan 2026"
+        data-format="TTF / OTF"
+        data-size="5 MB"
+        data-license="Free personal &amp; commercial">
+        <span class="fd-card-badge">CONTOH // ISI DATA</span>
         <div class="fd-tile">
           <img class="fd-thumb" src="img/thumb/contoh-font.png" alt="Font [NAMA FONT]" onerror="this.remove()">
           <span>F</span>
@@ -257,21 +269,28 @@
           </div>
           <a href="#" target="_blank" rel="noopener" class="fd-btn">DOWNLOAD &#8595;<span></span></a>
         </div>
-      </article> -->
+      </article>
 
       <!-- ============================================================
            ====== KATEGORI PNG  //  warna #ff5a75 ======
            ============================================================ -->
-      <article class="fd-card reveal" data-cat="png" style="--tc:#ff5a75" data-creator="Karya Asli — Arcivamile" data-date="1 Jan 2026" data-format="PNG" data-size="15 MB" data-license="Free personal &amp; commercial">
-        <span class="fd-card-badge">TAHAP PROSES</span>
+      <article class="fd-card reveal"
+        data-cat="png"
+        style="--tc:#ff5a75"
+        data-creator="Karya Asli — Arcivamile"
+        data-date="-"
+        data-format="PNG"
+        data-size="0 MB"
+        data-license="Free personal &amp; commercial">
+        <span class="fd-card-badge">Proses</span>
         <div class="fd-tile">
-          <img class="fd-thumb" src="img/thumb/contoh-png.png" alt="PNG Element (Belum Rilis)" onerror="this.remove()">
+          <img class="fd-thumb" src="img/thumb/contoh-png.png" alt="PNG Element" onerror="this.remove()">
           <span>P</span>
           <b>PNG</b>
         </div>
         <div class="fd-body">
           <span class="fd-cat">PNG</span>
-          <h3>PNG Element (Belum Rilis)</h3>
+          <h3>PNG Element</h3>
           <p>Deskripsi</p>
           <div class="fd-meta">
             <span>PNG</span><span>0 MB</span>
@@ -283,16 +302,23 @@
       <!-- ============================================================
            ====== KATEGORI JPG  //  warna #8a8aff ======
            ============================================================ -->
-      <article class="fd-card reveal" data-cat="jpg" style="--tc:#8a8aff" data-creator="Karya Asli — Arcivamile" data-date="1 Jan 2026" data-format="JPG" data-size="5 MB" data-license="Free personal &amp; commercial">
-        <span class="fd-card-badge">TAHAP PROSES</span>
+      <article class="fd-card reveal"
+        data-cat="jpg"
+        style="--tc:#8a8aff"
+        data-creator="Karya Asli — Arcivamile"
+        data-date="-"
+        data-format="JPG"
+        data-size="0 MB"
+        data-license="Free personal &amp; commercial">
+        <span class="fd-card-badge">PROSES</span>
         <div class="fd-tile">
-          <img class="fd-thumb" src="img/thumb/contoh-jpg.jpg" onerror="this.remove()">
+          <img class="fd-thumb" src="img/thumb/contoh-jpg.jpg" alt="JPG Image" onerror="this.remove()">
           <span>J</span>
           <b>JPG</b>
         </div>
         <div class="fd-body">
           <span class="fd-cat">JPG</span>
-          <h3>JPG Image (Belum Rilis)</h3>
+          <h3>JPG Image</h3>
           <p>Deskripsi</p>
           <div class="fd-meta">
             <span>JPG</span><span>0 MB</span>
