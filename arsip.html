@@ -60,7 +60,7 @@
       <span class="nav-corner nc-bl"></span>
       <span class="nav-corner nc-br"></span>
 
-      <a href="index.html" class="logo" data-logo>
+      <a href="index" class="logo" data-logo>
         <span class="logo-box">
           <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
             <defs>
@@ -82,9 +82,9 @@
       <span class="nav-stripe" aria-hidden="true"></span>
 
       <nav class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link" data-num="01"><span class="nav-txt">Home</span></a>
-        <a href="arsip.html" class="nav-link active" data-num="02"><span class="nav-txt">Arsip</span></a>
-        <a href="request.html" class="nav-link" data-num="03"><span class="nav-txt">Request</span></a>
+        <a href="index" class="nav-link" data-num="01"><span class="nav-txt">Home</span></a>
+        <a href="arsip" class="nav-link active" data-num="02"><span class="nav-txt">Arsip</span></a>
+        <a href="request" class="nav-link" data-num="03"><span class="nav-txt">Request</span></a>
         <span class="nav-indicator" id="navIndicator"></span>
       </nav>
 
@@ -94,7 +94,7 @@
           <span class="tt-knob"></span>
           <span class="tt-moon">&#9788;</span>
         </button>
-        <a href="arsip.html" class="nav-cta">Unduh Aset<span class="cta-corners"></span></a>
+        <a href="arsip" class="nav-cta">Unduh Aset<span class="cta-corners"></span></a>
       </div>
 
       <button class="burger" id="burger" aria-label="Menu">
@@ -107,9 +107,9 @@
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-bg" id="mobileMenuBg"></div>
     <nav class="mobile-menu-links">
-      <a href="index.html" data-num="01">Home</a>
-      <a href="arsip.html" data-num="02" class="active">Arsip</a>
-      <a href="request.html" data-num="03">Request</a>
+      <a href="index" data-num="01">Home</a>
+      <a href="arsip" data-num="02" class="active">Arsip</a>
+      <a href="request" data-num="03">Request</a>
     </nav>
     <div class="mobile-menu-foot">
       <span>LINK AKTIF // ARSIP</span>
@@ -174,11 +174,6 @@
       <span class="sec-num">[ 01 ]</span>
       <h2 class="sec-title">ARSIP<span class="sec-title-accent">ASET</span></h2>
       <div class="sec-line"></div>
-    </div>
-
-    <div class="fd-note reveal">
-      <span class="fd-note-label">CATATAN ARSIP</span>
-      <p>Semua aset di sini <b>100% karya asli Arcivamile</b> — dibuat sendiri dari nol. Tidak ada aset kreator lain yang dibagikan ulang; mengunggah ulang karya orang lain demi menghormati hak cipta.</p>
     </div>
 
     <div class="fd-filter reveal">
@@ -323,15 +318,15 @@
       <h2 class="fd-cta-title">TAK ADA <span class="hl">YANG COCOK?</span></h2>
       <p>Aset yang kamu cari belum ada di arsip? Kirim permintaan — kalau masuk akal, langsung kubuatkan gratis.</p>
       <div class="hero-cta">
-        <a href="request.html" class="btn btn-red">Ajukan Permintaan<span></span></a>
-        <a href="index.html" class="btn btn-ghost">Kembali ke Home<span></span></a>
+        <a href="request" class="btn btn-red">Ajukan Permintaan<span></span></a>
+        <a href="index" class="btn btn-ghost">Kembali ke Home<span></span></a>
       </div>
     </div>
   </section>
 
   <!-- ===== LANJUT KE REQUEST ===== -->
   <section class="fd-next">
-    <a href="request.html" class="fd-next-link">
+    <a href="request" class="fd-next-link">
       <span class="fd-next-label">LANJUT // HALAMAN BERIKUT</span>
       <span class="fd-next-title">REQUEST<span class="fd-next-arrow">&#8594;</span></span>
     </a>
@@ -357,12 +352,16 @@
         <div><span>UKURAN</span><b id="mSize">-</b></div>
         <div class="fd-modal-license"><span>LISENSI</span><b id="mLicense">-</b></div>
       </div>
-      <p class="fd-modal-note">Aset ini 100% karya asli Arcivamile — dibuat sendiri dari nol. Tidak ada aset kreator lain yang dibagikan ulang, jadi aman dari pelanggaran hak cipta.</p>
+      <p class="fd-modal-note">Aset ini merupakan karya asli Arcivamile. Dengan mengunduh, kamu menyatakan tidak akan membagikan ulang aset ini dalam bentuk apa pun.</p>
       <div class="fd-modal-guard" id="fdGuard">
         <div class="fd-guard-box">
           <span class="fd-guard-label">VERIFIKASI MANUSIA // ANTI-SPAM</span>
           <div id="cf-turnstile"></div>
           <button type="button" class="fd-guard-fallback" id="fdGuardFallback" hidden>SAYA BUKAN ROBOT &#10003;</button>
+          <label class="fd-guard-agree">
+            <input type="checkbox" id="fdAgree">
+            <span>Saya setuju untuk <b>tidak membagikan ulang</b> aset ini, dan mengakui bahwa aset ini adalah <b>karya asli Arcivamile</b>. Dilarang mengunggah ulang dalam bentuk apa pun.</span>
+          </label>
           <p class="fd-guard-msg" id="fdGuardMsg"></p>
         </div>
       </div>

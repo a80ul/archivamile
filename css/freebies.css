@@ -745,6 +745,27 @@ body.entered .fd-title .line-2 { animation: lineIn 1s cubic-bezier(.7,0,.3,1) .2
   cursor: pointer;
 }
 .fd-guard-fallback:hover { background: #ffd400; }
+.fd-guard-agree {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.7;
+  letter-spacing: .05em;
+  color: var(--muted);
+  text-align: left;
+  cursor: pointer;
+}
+.fd-guard-agree input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--red);
+  margin-top: 2px;
+  flex: none;
+  cursor: pointer;
+}
+.fd-guard-agree b { color: var(--red); }
 .fd-guard-msg {
   font-family: var(--font-mono);
   font-size: 10px;

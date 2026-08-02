@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (localCards.length) {
       applyStat(localCards);
     } else {
-      fetch('arsip.html')
+      fetch('arsip')
         .then(r => r.text())
         .then(html => {
           applyStat(new DOMParser().parseFromString(html, 'text/html').querySelectorAll('.fd-card'));
@@ -242,6 +242,8 @@ document.addEventListener('DOMContentLoaded', () => {
         mDownload.setAttribute('href', btn.getAttribute('href'));
         modal.classList.add('show');
         document.body.style.overflow = 'hidden';
+        if (fdAgree) fdAgree.checked = false;
+        agreeChecked = false;
         setHuman(false);
         setGuardMsg('');
         renderGuard();
@@ -262,7 +264,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const COOLDOWN_SEC = 30;
     const mGuardMsg = document.getElementById('fdGuardMsg');
     const fdGuardFallback = document.getElementById('fdGuardFallback');
+    const fdAgree = document.getElementById('fdAgree');
     let humanVerified = false;
+    let agreeChecked = false;
     let turnstileWidget = null;
 
     const lastDownload = () => Number(localStorage.getItem('zzz-last-dl') || 0);
@@ -271,11 +275,15 @@ document.addEventListener('DOMContentLoaded', () => {
       return Math.max(0, COOLDOWN_SEC - s);
     };
     const setGuardMsg = (txt) => { if (mGuardMsg) mGuardMsg.textContent = txt || ''; };
-    const setHuman = (ok) => {
-      humanVerified = ok;
+    const updateGate = () => {
+      const ok = humanVerified && agreeChecked;
       const lbl = mDownload.querySelector('.fd-mdl-label');
       if (lbl) lbl.innerHTML = ok ? 'DOWNLOAD \u2193' : 'VERIFIKASI DULU';
       mDownload.classList.toggle('locked', !ok);
+    };
+    const setHuman = (ok) => {
+      humanVerified = ok;
+      updateGate();
     };
 
     const renderGuard = () => {
@@ -305,9 +313,22 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    if (fdAgree) {
+      fdAgree.addEventListener('change', () => {
+        agreeChecked = fdAgree.checked;
+        if (agreeChecked && !humanVerified) setGuardMsg('Selesaikan verifikasi "Saya bukan robot" dulu.');
+        else setGuardMsg('');
+        updateGate();
+      });
+    }
+
     mDownload.addEventListener('click', (e) => {
       e.preventDefault();
       const href = mDownload.getAttribute('href');
+      if (!agreeChecked) {
+        setGuardMsg('Centang persetujuan "tidak membagikan ulang" dulu.');
+        return;
+      }
       if (!humanVerified) {
         setGuardMsg('Selesaikan verifikasi "Saya bukan robot" dulu.');
         return;
@@ -321,6 +342,8 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('zzz-last-dl', String(Math.floor(Date.now() / 1000)));
       setGuardMsg('');
       setHuman(false);
+      if (fdAgree) fdAgree.checked = false;
+      agreeChecked = false;
       renderGuard();
       window.open(href, '_blank', 'noopener');
     });
@@ -378,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---------- TRANSISI HALUS ANTAR HALAMAN (fade out sebelum pindah) ---------- */
-  document.querySelectorAll('a[href$=".html"]').forEach(a => {
+  document.querySelectorAll('a[href^="index"], a[href^="arsip"], a[href^="request"], a[href$=".html"]').forEach(a => {
     a.addEventListener('click', (e) => {
       const href = a.getAttribute('href');
       if (!href || href.indexOf('://') !== -1) return;
