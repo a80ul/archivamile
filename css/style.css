@@ -1,5 +1,5 @@
 /* ============================================================
-   ARCHIVAMILE — Zenless Zone Zero Themed Design Portfolio
+   ARCIVAMILE — Zenless Zone Zero Themed Design Portfolio
    Light / Dark theme via [data-theme]
    ============================================================ */
 
@@ -255,10 +255,9 @@ body.leaving { opacity: 0; transform: scale(.985); }
 html.no-scroll { overflow: hidden; }
 
 /* hero enters only after intro */
-.hero-kicker, .hero-sub, .hero-cta { animation: none; opacity: 0; }
+.hero-kicker, .hero-sub { animation: none; opacity: 0; }
 .entered .hero-kicker { animation: kickerIn 1s ease .35s backwards; }
 .entered .hero-sub { animation: kickerIn 1s ease .6s backwards; }
-.entered .hero-cta { animation: kickerIn 1s ease .85s backwards; }
 
 /* ============================================================
    THEME FLASH + SCROLL PROGRESS + TV STATIC
@@ -974,7 +973,7 @@ body.entered .hero-shine { animation: shineSweep 9s ease-in-out 5s infinite; }
   color: var(--red);
   animation: preBlink 1s steps(2) infinite;
 }
-@keyframes kickerIn { from { opacity: 0; letter-spacing: 1em; } }
+@keyframes kickerIn { from { opacity: 0; letter-spacing: 1em; } to { opacity: 1; } }
 
 .hero-title { font-family: var(--font-display); line-height: .95; }
 .hero-title .line { display: block; }
@@ -1860,7 +1859,7 @@ body.entered .chip { opacity: 1; }
   border: 1px solid var(--red);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 3200;
+  z-index: 4500;
   transition: transform .18s ease, opacity .3s;
   mix-blend-mode: difference;
   transform: translate(-50%, -50%);
@@ -1871,7 +1870,7 @@ body.entered .chip { opacity: 1; }
   background: var(--yellow);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 3201;
+  z-index: 4501;
   transition: transform .12s ease;
 }
 .cursor.grow { transform: translate(-50%, -50%) scale(2.2); background: rgba(228,0,43,.15); border-color: var(--yellow); }
@@ -2137,7 +2136,7 @@ body.entered .chip { opacity: 1; }
 }
 .freebie-cta-hint b { color: var(--red); }
 
-/* veil transisi menuju freebies.html */
+/* veil transisi antar halaman */
 .redirect-veil {
   position: fixed; inset: 0; z-index: 3000;
   background: var(--bg);

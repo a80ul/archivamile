@@ -1,17 +1,8 @@
 /* ============================================================
-   ARCHIVAMILE — FREEBIES / FREE DROP page script
-   ============================================================ */
-
-/* ============================================================
-   KONFIGURASI FORM REQUEST ASET
-   ------------------------------------------------------------
-   1. REQUEST_WA    : nomor WhatsApp tujuan. ISI DI SINI dengan
-                      format 62 tanpa tanda +, contoh: '6281234567890'
-                      (kosongkan kalau belum mau pakai WhatsApp)
-   2. REQUEST_EMAIL : email tujuan jika WhatsApp dikosongkan.
+   ARCIVAMILE — FREEBIES / FREE DROP page script
    ============================================================ */
 const REQUEST_WA = '';
-const REQUEST_EMAIL = 'aziz@archivamile.my.id';
+const REQUEST_EMAIL = 'arcivamile@gmail.com';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -129,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterBtns = document.querySelectorAll('.fd-filter-btn');
   const cards = document.querySelectorAll('.fd-card');
   const count = document.getElementById('fdCount');
+  const emptyBox = document.getElementById('fdEmpty');
 
   const applyFilter = (cat) => {
     let shown = 0;
@@ -141,7 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
         shown++;
       }
     });
-    count.textContent = String(shown).padStart(2, '0') + ' / ' + String(cards.length).padStart(2, '0');
+    if (count) count.textContent = String(shown).padStart(2, '0') + ' / ' + String(cards.length).padStart(2, '0');
+    if (emptyBox) emptyBox.classList.toggle('show', shown === 0);
   };
 
   filterBtns.forEach(btn => {
@@ -151,6 +144,31 @@ document.addEventListener('DOMContentLoaded', () => {
       applyFilter(btn.dataset.filter);
     });
   });
+
+  applyFilter('all');
+
+  /* ---------- STAT ARSIP OTOMATIS (jumlah diambil dari kartu yang ada) ---------- */
+  if (document.querySelector('.fd-stats')) {
+    const localCards = document.querySelectorAll('.fd-card');
+    const applyStat = (cards) => {
+      const cats = new Set();
+      cards.forEach(c => cats.add(c.dataset.cat));
+      const elArsip = document.getElementById('statArsip');
+      const elKategori = document.getElementById('statKategori');
+      if (elArsip) elArsip.textContent = String(cards.length).padStart(2, '0');
+      if (elKategori) elKategori.textContent = String(cats.size).padStart(2, '0');
+    };
+    if (localCards.length) {
+      applyStat(localCards);
+    } else {
+      fetch('arsip.html')
+        .then(r => r.text())
+        .then(html => {
+          applyStat(new DOMParser().parseFromString(html, 'text/html').querySelectorAll('.fd-card'));
+        })
+        .catch(() => {});
+    }
+  }
 
   /* ---------- NAV INDICATOR (slider mengikuti link, sama seperti home) ---------- */
   const indicator = document.getElementById('navIndicator');
@@ -186,14 +204,127 @@ document.addEventListener('DOMContentLoaded', () => {
     fdHeroInner.style.transform = '';
   });
 
-  /* ---------- DOWNLOAD BUTTON (cegah lompat ke atas jika link belum diisi) ---------- */
-  document.querySelectorAll('.fd-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      if (btn.getAttribute('href') === '#' || btn.getAttribute('href') === '') {
+  /* ---------- POPUP INFO DOWNLOAD (kreator, tanggal, lisensi) ---------- */
+  const modal = document.getElementById('fdModal');
+  const modalBg = document.getElementById('fdModalBg');
+  const mCat = document.getElementById('mCat');
+  const mTitle = document.getElementById('mTitle');
+  const mDesc = document.getElementById('mDesc');
+  const mCreator = document.getElementById('mCreator');
+  const mDate = document.getElementById('mDate');
+  const mFormat = document.getElementById('mFormat');
+  const mSize = document.getElementById('mSize');
+  const mLicense = document.getElementById('mLicense');
+  const mDownload = document.getElementById('mDownload');
+  const mClose = document.getElementById('mClose');
+
+  const closeModal = () => {
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+  };
+
+  if (modal) {
+    document.querySelectorAll('.fd-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
         e.preventDefault();
-      }
+        const card = btn.closest('.fd-card');
+        if (!card) return;
+        mCat.textContent = (card.dataset.cat || 'ASET').toUpperCase();
+        const h3 = card.querySelector('h3');
+        const p = card.querySelector('p');
+        if (h3) mTitle.textContent = h3.textContent;
+        if (p) mDesc.textContent = p.textContent;
+        mCreator.textContent = card.dataset.creator || '-';
+        mDate.textContent = card.dataset.date || '-';
+        mFormat.textContent = card.dataset.format || '-';
+        mSize.textContent = card.dataset.size || '-';
+        mLicense.textContent = card.dataset.license || '-';
+        mDownload.setAttribute('href', btn.getAttribute('href'));
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        setHuman(false);
+        setGuardMsg('');
+        renderGuard();
+      });
     });
-  });
+
+    modalBg.addEventListener('click', closeModal);
+    mClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+    });
+
+    /* ---------- GATE ANTI-SPAM: VERIFIKASI MANUSIA + COOLDOWN ---------- */
+    const TURNSTILE_SITEKEY = '0x4AAAAAAEEaW_rpLhenvdHG';
+    const COOLDOWN_SEC = 30;
+    const mGuardMsg = document.getElementById('fdGuardMsg');
+    const fdGuardFallback = document.getElementById('fdGuardFallback');
+    let humanVerified = false;
+    let turnstileWidget = null;
+
+    const lastDownload = () => Number(localStorage.getItem('zzz-last-dl') || 0);
+    const remainingCooldown = () => {
+      const s = Math.floor(Date.now() / 1000) - lastDownload();
+      return Math.max(0, COOLDOWN_SEC - s);
+    };
+    const setGuardMsg = (txt) => { if (mGuardMsg) mGuardMsg.textContent = txt || ''; };
+    const setHuman = (ok) => {
+      humanVerified = ok;
+      const lbl = mDownload.querySelector('.fd-mdl-label');
+      if (lbl) lbl.innerHTML = ok ? 'DOWNLOAD \u2193' : 'VERIFIKASI DULU';
+      mDownload.classList.toggle('locked', !ok);
+    };
+
+    const renderGuard = () => {
+      const box = document.getElementById('cf-turnstile');
+      if (!box) return;
+      if (TURNSTILE_SITEKEY && window.turnstile) {
+        if (turnstileWidget) {
+          window.turnstile.reset(turnstileWidget);
+        } else {
+          turnstileWidget = window.turnstile.render(box, {
+            sitekey: TURNSTILE_SITEKEY,
+            theme: document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark',
+            callback: () => { setHuman(true); setGuardMsg(''); },
+            'expired-callback': () => setHuman(false)
+          });
+        }
+        fdGuardFallback.hidden = true;
+      } else {
+        fdGuardFallback.hidden = false;
+      }
+    };
+
+    if (fdGuardFallback) {
+      fdGuardFallback.addEventListener('click', () => {
+        setGuardMsg('Memeriksa...');
+        setTimeout(() => { setHuman(true); setGuardMsg(''); }, 700);
+      });
+    }
+
+    mDownload.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = mDownload.getAttribute('href');
+      if (!humanVerified) {
+        setGuardMsg('Selesaikan verifikasi "Saya bukan robot" dulu.');
+        return;
+      }
+      const wait = remainingCooldown();
+      if (wait > 0) {
+        setGuardMsg('Tunggu ' + wait + ' detik untuk unduh berikutnya.');
+        return;
+      }
+      if (!href || href === '#') return;
+      localStorage.setItem('zzz-last-dl', String(Math.floor(Date.now() / 1000)));
+      setGuardMsg('');
+      setHuman(false);
+      renderGuard();
+      window.open(href, '_blank', 'noopener');
+    });
+  }
 
   /* ---------- FORM REQUEST ASET (kirim ke WhatsApp / Email + animasi sukses) ---------- */
   const reqForm = document.getElementById('reqForm');
@@ -205,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const val = reqInput.value.trim();
       if (!val) return;
 
-      const msg = 'Halo Archivamile! Aku minta aset gratis di FREE DROP: ' + val + ' — terima kasih!';
+      const msg = 'Halo Tim Arcivamile! Aku minta aset gratis di FREE DROP: ' + val + ' — terima kasih!';
       if (REQUEST_WA) {
         window.open('https://wa.me/' + REQUEST_WA + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
       } else {

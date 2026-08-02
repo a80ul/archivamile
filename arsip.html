@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARSIP // ARCIVAMILE — Aset Desain Gratis</title>
+  <script>
+    (function () {
+      var t = localStorage.getItem('zzz-theme');
+      if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/freebies.css">
+</head>
+<body>
+
+  <!-- ===== INTRO ===== -->
+  <div class="intro" id="intro">
+    <div class="intro-noise"></div>
+    <div class="intro-halftone"></div>
+    <button class="intro-skip" id="introSkip">SKIP &#9658;</button>
+    <div class="intro-center">
+      <div class="intro-logo" id="introLogo">
+        <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
+          <defs>
+            <linearGradient id="lgIntro" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff5a75"/>
+              <stop offset="0.55" stop-color="#e4002b"/>
+              <stop offset="1" stop-color="#7a0013"/>
+            </linearGradient>
+          </defs>
+          <path d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z" fill="url(#lgIntro)"/>
+          <path d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+          <path d="M24 12.5 L34.5 35.5 H30.4 L24 21 L17.6 35.5 H13.5 Z" fill="#fff"/>
+          <path d="M33.2 10 L35.6 12.4 L33.2 14.8 L30.8 12.4 Z" fill="#ffd400"/>
+        </svg>
+      </div>
+      <h1 class="intro-name" id="introName">ARSIP</h1>
+      <p class="intro-sub">FREE DROP // ARCIVAMILE</p>
+      <div class="intro-bar"><i></i></div>
+      <p class="intro-loading">MEMBUKA ARSIP<span class="load-dots">...</span></p>
+    </div>
+  </div>
+
+  <!-- ===== THEME FLASH ===== -->
+  <div class="theme-flash" id="themeFlash"></div>
+
+  <!-- ===== SCROLL PROGRESS ===== -->
+  <div class="scroll-progress"><i id="scrollBar"></i></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <span class="nav-corner nc-tl"></span>
+      <span class="nav-corner nc-tr"></span>
+      <span class="nav-corner nc-bl"></span>
+      <span class="nav-corner nc-br"></span>
+
+      <a href="index.html" class="logo" data-logo>
+        <span class="logo-box">
+          <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
+            <defs>
+              <linearGradient id="lgNav" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff5a75"/>
+                <stop offset="0.55" stop-color="#e4002b"/>
+                <stop offset="1" stop-color="#7a0013"/>
+              </linearGradient>
+            </defs>
+            <path d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z" fill="url(#lgNav)"/>
+            <path d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+            <path d="M24 12.5 L34.5 35.5 H30.4 L24 21 L17.6 35.5 H13.5 Z" fill="#fff"/>
+            <path d="M33.2 10 L35.6 12.4 L33.2 14.8 L30.8 12.4 Z" fill="#ffd400"/>
+          </svg>
+        </span>
+        <span class="logo-text">RCHIVAMILE<span class="logo-dot">.</span></span>
+      </a>
+      <span class="nav-tag"><i></i><b>FREE DROP</b> // 2026</span>
+      <span class="nav-stripe" aria-hidden="true"></span>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link" data-num="01"><span class="nav-txt">Home</span></a>
+        <a href="arsip.html" class="nav-link active" data-num="02"><span class="nav-txt">Arsip</span></a>
+        <a href="request.html" class="nav-link" data-num="03"><span class="nav-txt">Request</span></a>
+        <span class="nav-indicator" id="navIndicator"></span>
+      </nav>
+
+      <div class="navbar-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema cahaya">
+          <span class="tt-sun">&#9728;</span>
+          <span class="tt-knob"></span>
+          <span class="tt-moon">&#9788;</span>
+        </button>
+        <a href="arsip.html" class="nav-cta">Unduh Aset<span class="cta-corners"></span></a>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE MENU ===== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-bg" id="mobileMenuBg"></div>
+    <nav class="mobile-menu-links">
+      <a href="index.html" data-num="01">Home</a>
+      <a href="arsip.html" data-num="02" class="active">Arsip</a>
+      <a href="request.html" data-num="03">Request</a>
+    </nav>
+    <div class="mobile-menu-foot">
+      <span>LINK AKTIF // ARSIP</span>
+      <span class="mm-static">&#9612;&#9612;&#9612;&#9612;&#9612;&#9612;&#9612;</span>
+    </div>
+  </div>
+
+  <!-- ===== HERO ARSIP ===== -->
+  <section class="fd-hero" id="top">
+    <div class="hero-halftone"></div>
+    <div class="fd-grid-bg" aria-hidden="true"></div>
+    <svg class="fd-reticle" viewBox="0 0 100 100" aria-hidden="true">
+      <g fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.2">
+        <circle cx="50" cy="50" r="20"/>
+        <circle cx="50" cy="50" r="42" stroke-dasharray="3 7" opacity=".4"/>
+        <line x1="50" y1="18" x2="50" y2="30"/>
+        <line x1="50" y1="70" x2="50" y2="82"/>
+        <line x1="18" y1="50" x2="30" y2="50"/>
+        <line x1="70" y1="50" x2="82" y2="50"/>
+      </g>
+    </svg>
+    <div class="fd-vert vert-l">ARSIP ASET // VOL.01</div>
+    <div class="fd-vert vert-r">DOWNLOAD / ARCIVAMILE</div>
+
+    <div class="fd-hero-inner">
+      <div class="hero-brackets" aria-hidden="true">
+        <i class="br-tl"></i><i class="br-tr"></i><i class="br-bl"></i><i class="br-br"></i>
+      </div>
+      <p class="hero-kicker reveal">// FREE DROP — ARSIP ASET GRATIS</p>
+      <h1 class="fd-title">
+        <span class="line line-1">
+          <span class="glitch" data-text="ARSIP">ARSIP</span>
+        </span>
+        <span class="line line-2">
+          <span class="glitch" data-text="ASET.">ASET.</span>
+        </span>
+      </h1>
+      <p class="hero-sub reveal">Semua kategori dalam satu tempat — <span class="hl">logo</span>, <span class="hl">font</span>, sampai <span class="hl">PNG</span> &amp; <span class="hl">JPG</span> siap unduh.</p>
+      <div class="fd-stats reveal">
+        <div class="fd-stat"><b id="statArsip">07</b><span>ARSIP</span></div>
+        <div class="fd-stat"><b id="statKategori">07</b><span>KATEGORI</span></div>
+        <div class="fd-stat"><b>100%</b><span>GRATIS</span></div>
+        <div class="fd-stat"><b>FREE</b><span>LICENSE</span></div>
+      </div>
+    </div>
+
+    <div class="fd-tape" aria-hidden="true"></div>
+    <div class="hero-fade" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>LOGO&nbsp;&nbsp;&#10022;&nbsp;&nbsp;FONT&nbsp;&nbsp;&#10022;&nbsp;&nbsp;PNG&nbsp;&nbsp;&#10022;&nbsp;&nbsp;JPG&nbsp;&nbsp;&#10022;&nbsp;&nbsp;LOGO&nbsp;&nbsp;&#10022;&nbsp;&nbsp;FONT&nbsp;&nbsp;&#10022;&nbsp;&nbsp;PNG&nbsp;&nbsp;&#10022;&nbsp;&nbsp;JPG&nbsp;&nbsp;&#10022;&nbsp;&nbsp;LOGO&nbsp;&nbsp;&#10022;&nbsp;&nbsp;FONT&nbsp;&nbsp;&#10022;&nbsp;&nbsp;PNG&nbsp;&nbsp;&#10022;&nbsp;&nbsp;JPG&nbsp;&nbsp;&#10022;&nbsp;&nbsp;</span>
+      <span>LOGO&nbsp;&nbsp;&#10022;&nbsp;&nbsp;FONT&nbsp;&nbsp;&#10022;&nbsp;&nbsp;PNG&nbsp;&nbsp;&#10022;&nbsp;&nbsp;JPG&nbsp;&nbsp;&#10022;&nbsp;&nbsp;LOGO&nbsp;&nbsp;&#10022;&nbsp;&nbsp;FONT&nbsp;&nbsp;&#10022;&nbsp;&nbsp;PNG&nbsp;&nbsp;&#10022;&nbsp;&nbsp;JPG&nbsp;&nbsp;&#10022;&nbsp;&nbsp;LOGO&nbsp;&nbsp;&#10022;&nbsp;&nbsp;FONT&nbsp;&nbsp;&#10022;&nbsp;&nbsp;PNG&nbsp;&nbsp;&#10022;&nbsp;&nbsp;JPG&nbsp;&nbsp;&#10022;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ===== ARSIP ===== -->
+  <section class="section fd-section" id="freebies">
+    <div class="section-head reveal">
+      <span class="sec-num">[ 01 ]</span>
+      <h2 class="sec-title">ARSIP<span class="sec-title-accent">ASET</span></h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="fd-note reveal">
+      <span class="fd-note-label">CATATAN ARSIP</span>
+      <p>Semua aset di sini <b>100% karya asli Arcivamile</b> — dibuat sendiri dari nol. Tidak ada aset kreator lain yang dibagikan ulang; mengunggah ulang karya orang lain demi menghormati hak cipta.</p>
+    </div>
+
+    <div class="fd-filter reveal">
+      <button class="fd-filter-btn active" data-filter="all">Semua</button>
+      <button class="fd-filter-btn" data-filter="logo">Logo</button>
+      <button class="fd-filter-btn" data-filter="font">Font</button>
+      <button class="fd-filter-btn" data-filter="png">PNG</button>
+      <button class="fd-filter-btn" data-filter="jpg">JPG</button>
+      <span class="fd-count" id="fdCount">07 / 07</span>
+    </div>
+
+    <!--
+      ============================================================
+      CARA TAMBAH ASET BARU (baca sekali, lalu tinggal salin-tempel)
+      ------------------------------------------------------------
+      1. Setiap kategori punya blok kartunya sendiri di bawah ini,
+         dipisah komentar ===== NAMA KATEGORI =====.
+      2. Nambah aset: salin satu blok <article class="fd-card">
+         di kategori yang sama, tempel tepat di bawahnya, lalu ganti:
+           - data-creator : tulis "Karya Asli — Arcivamile"
+                            (arsip ini 100% buatan sendiri, DILARANG
+                            upload ulang aset kreator lain — melanggar
+                            hak cipta walau lisensinya PU/CU)
+           - data-date    : tanggal upload
+           - data-format  : format file (contoh: AI / PNG)
+           - data-size    : ukuran file (contoh: 10 MB)
+           - data-license : lisensi (contoh: Free personal & commercial)
+           - src gambar   : taruh gambar di folder img/thumb/
+                            lalu tulis src="img/thumb/nama-file.png"
+           - href="#"     : ganti # dengan link download asli
+                            (Google Drive, Mediafire, dll)
+      3. Hapus <span class="fd-card-badge">CONTOH... bila kartunya
+         sudah jadi aset beneran.
+      4. Jumlah kartu di fdCount, stat "ARSIP / KATEGORI" di hero,
+         dan animasi pop terhitung OTOMATIS dari blok yang ada.
+      ------------------------------------------------------------
+      Blok kartu siap-salin versi terpisah juga ada di file
+      template-kartu.html (bisa dibuka di browser buat salin).
+      ============================================================
+    -->
+
+    <div class="fd-grid" id="fdGrid">
+
+      <!-- ============================================================
+           ====== KATEGORI LOGO  //  warna #e4002b ======
+           ============================================================ -->
+      <!-- <article class="fd-card reveal" data-cat="logo" style="--tc:#e4002b" data-creator="Karya Asli — Arcivamile" data-date="1 Jan 2026" data-format="AI / PNG" data-size="10 MB" data-license="Free personal &amp; commercial">
+        <span class="fd-card-badge">CONTOH // SALIN &amp; ISI</span>
+        <div class="fd-tile">
+          <img class="fd-thumb" src="img/thumb/contoh-logo.png" alt="Logo Pack [NAMA KAMU]" onerror="this.remove()">
+          <span>L</span>
+          <b>LOGO</b>
+        </div>
+        <div class="fd-body">
+          <span class="fd-cat">LOGO</span>
+          <h3>Logo Pack [NAMA KAMU]</h3>
+          <p>Ganti deskripsi: jelaskan isi pack ini, jumlah file, dan cocok untuk apa.</p>
+          <div class="fd-meta">
+            <span>AI / PNG</span><span>10 MB</span><span>0 UNDUH</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="fd-btn">DOWNLOAD &#8595;<span></span></a>
+        </div>
+      </article> -->
+
+      <!-- ============================================================
+           ====== KATEGORI FONT  //  warna #ff9a00 ======
+           ============================================================ -->
+      <!-- <article class="fd-card reveal" data-cat="font" style="--tc:#ff9a00" data-creator="Karya Asli — Arcivamile" data-date="1 Jan 2026" data-format="TTF / OTF" data-size="5 MB" data-license="Free personal &amp; commercial">
+        <span class="fd-card-badge">CONTOH // SALIN &amp; ISI</span>
+        <div class="fd-tile">
+          <img class="fd-thumb" src="img/thumb/contoh-font.png" alt="Font [NAMA FONT]" onerror="this.remove()">
+          <span>F</span>
+          <b>FONT</b>
+        </div>
+        <div class="fd-body">
+          <span class="fd-cat">FONT</span>
+          <h3>Font [NAMA FONT]</h3>
+          <p>Ganti deskripsi: style font, jenis huruf yang didukung, dan lisensinya.</p>
+          <div class="fd-meta">
+            <span>TTF / OTF</span><span>5 MB</span><span>0 UNDUH</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="fd-btn">DOWNLOAD &#8595;<span></span></a>
+        </div>
+      </article> -->
+
+      <!-- ============================================================
+           ====== KATEGORI PNG  //  warna #ff5a75 ======
+           ============================================================ -->
+      <article class="fd-card reveal" data-cat="png" style="--tc:#ff5a75" data-creator="Karya Asli — Arcivamile" data-date="1 Jan 2026" data-format="PNG" data-size="15 MB" data-license="Free personal &amp; commercial">
+        <span class="fd-card-badge">CONTOH // SALIN &amp; ISI</span>
+        <div class="fd-tile">
+          <img class="fd-thumb" src="img/thumb/contoh-png.png" alt="PNG Element [NAMA]" onerror="this.remove()">
+          <span>P</span>
+          <b>PNG</b>
+        </div>
+        <div class="fd-body">
+          <span class="fd-cat">PNG</span>
+          <h3>PNG Element [NAMA]</h3>
+          <p>Ganti deskripsi: elemen transparan apa saja, resolusi, dan background apa.</p>
+          <div class="fd-meta">
+            <span>PNG</span><span>15 MB</span><span>0 UNDUH</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="fd-btn">DOWNLOAD &#8595;<span></span></a>
+        </div>
+      </article>
+
+      <!-- ============================================================
+           ====== KATEGORI JPG  //  warna #8a8aff ======
+           ============================================================ -->
+      <article class="fd-card reveal" data-cat="jpg" style="--tc:#8a8aff" data-creator="Karya Asli — Arcivamile" data-date="1 Jan 2026" data-format="JPG" data-size="5 MB" data-license="Free personal &amp; commercial">
+        <span class="fd-card-badge">CONTOH // SALIN &amp; ISI</span>
+        <div class="fd-tile">
+          <img class="fd-thumb" src="img/thumb/contoh-jpg.jpg" alt="JPG Image [NAMA]" onerror="this.remove()">
+          <span>J</span>
+          <b>JPG</b>
+        </div>
+        <div class="fd-body">
+          <span class="fd-cat">JPG</span>
+          <h3>JPG Image [NAMA]</h3>
+          <p>Ganti deskripsi: foto/gambar apa, resolusi, dan sumber aslinya.</p>
+          <div class="fd-meta">
+            <span>JPG</span><span>5 MB</span><span>0 UNDUH</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="fd-btn">DOWNLOAD &#8595;<span></span></a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="fd-empty" id="fdEmpty">
+      <span class="fd-empty-label">ARSIP KOSONG</span>
+      <h3>Belum Ada Aset di Kategori Ini</h3>
+      <p>Geser ke kategori lain, atau ajukan permintaan aset gratis.</p>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="fd-cta">
+    <div class="hero-halftone"></div>
+    <div class="fd-cta-inner reveal">
+      <span class="cp-label">SINYAL TERHUBUNG // 100%</span>
+      <h2 class="fd-cta-title">TAK ADA <span class="hl">YANG COCOK?</span></h2>
+      <p>Aset yang kamu cari belum ada di arsip? Kirim permintaan — kalau masuk akal, langsung kubuatkan gratis.</p>
+      <div class="hero-cta">
+        <a href="request.html" class="btn btn-red">Ajukan Permintaan<span></span></a>
+        <a href="index.html" class="btn btn-ghost">Kembali ke Home<span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LANJUT KE REQUEST ===== -->
+  <section class="fd-next">
+    <a href="request.html" class="fd-next-link">
+      <span class="fd-next-label">LANJUT // HALAMAN BERIKUT</span>
+      <span class="fd-next-title">REQUEST<span class="fd-next-arrow">&#8594;</span></span>
+    </a>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-noise"></div>
+    <p>Copyright &copy; 2026 Abdul Aziz — Arcivamile. All Rights Reserved.</p>
+  </footer>
+
+  <!-- ===== POPUP INFO DOWNLOAD ===== -->
+  <div class="fd-modal" id="fdModal">
+    <div class="fd-modal-bg" id="fdModalBg"></div>
+    <div class="fd-modal-panel">
+      <span class="fd-modal-cat" id="mCat">ASET</span>
+      <h3 id="mTitle">Judul Aset</h3>
+      <p id="mDesc">Deskripsi aset.</p>
+      <div class="fd-modal-info">
+        <div><span>KREATOR</span><b id="mCreator">-</b></div>
+        <div><span>DIUPLOAD</span><b id="mDate">-</b></div>
+        <div><span>FORMAT</span><b id="mFormat">-</b></div>
+        <div><span>UKURAN</span><b id="mSize">-</b></div>
+        <div class="fd-modal-license"><span>LISENSI</span><b id="mLicense">-</b></div>
+      </div>
+      <p class="fd-modal-note">Aset ini 100% karya asli Arcivamile — dibuat sendiri dari nol. Tidak ada aset kreator lain yang dibagikan ulang, jadi aman dari pelanggaran hak cipta.</p>
+      <div class="fd-modal-guard" id="fdGuard">
+        <div class="fd-guard-box">
+          <span class="fd-guard-label">VERIFIKASI MANUSIA // ANTI-SPAM</span>
+          <div id="cf-turnstile"></div>
+          <button type="button" class="fd-guard-fallback" id="fdGuardFallback" hidden>SAYA BUKAN ROBOT &#10003;</button>
+          <p class="fd-guard-msg" id="fdGuardMsg"></p>
+        </div>
+      </div>
+      <div class="fd-modal-actions">
+        <a href="#" target="_blank" rel="noopener" class="btn btn-red locked" id="mDownload"><span class="fd-mdl-label">VERIFIKASI DULU</span><span></span></a>
+        <a href="#" class="btn btn-ghost" id="mClose">TUTUP<span></span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+  <script src="js/freebies.js"></script>
+</body>
+</html>

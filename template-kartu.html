@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEMPLATE KARTU // ARCIVAMILE — Arsip Aset</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      background: #17171a;
+      color: #f4f4f5;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 26px; letter-spacing: .05em; }
+    h1 span { color: #e4002b; }
+    p { color: #9b9ba3; line-height: 1.7; }
+    b { color: #ffd400; }
+    pre {
+      background: #0f0f12;
+      border: 1px solid #2a2a30;
+      border-left: 3px solid #e4002b;
+      padding: 18px;
+      overflow-x: auto;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #d9d9de;
+      white-space: pre;
+    }
+    pre::before { content: attr(data-cat); display: block; font-weight: bold; color: #ffd400; margin-bottom: 10px; letter-spacing: .2em; font-size: 11px; }
+    a { color: #e4002b; }
+  </style>
+</head>
+<body>
+
+<h1>TEMPLATE <span>KARTU</span> — ARSIP ASET</h1>
+<p>Ini file bantu (helper) untuk isi <b>arsip.html</b>. Blok di bawah adalah versi kartu yang sama dengan yang tampil di halaman Arsip, cuma disusun per kategori biar gampang disalin.</p>
+<p><b>CARA PAKAI:</b></p>
+<p>1. Salin satu blok penuh sesuai kategorinya (dari <code>&lt;article</code> sampai <code>&lt;/article&gt;</code>).<br>
+2. Paste di <b>arsip.html</b> di dalam <code>&lt;div class="fd-grid" id="fdGrid"&gt;</code>.<br>
+3. Ganti semua bagian <b>[ ... ]</b> dengan data asetmu.<br>
+4. Ganti <code>src="img/thumb/..."</code> dengan nama file gambarmu (taruh gambar di folder <code>img/thumb/</code>).<br>
+5. Ganti <code>href="#"</code> dengan link download asli (Google Drive, Mediafire, dll).<br>
+6. Hapus <code>&lt;span class="fd-card-badge"&gt;</code> kalau kartunya sudah jadi aset beneran.<br>
+7. Selesai — jumlah di hero &amp; <code>fdCount</code> terhitung otomatis.</p>
+<p>Warna tiap kategori (1 kategori = 1 warna): LOGO <span style="color:#e4002b">#e4002b</span> · FONT <span style="color:#ff9a00">#ff9a00</span> · PNG <span style="color:#ff5a75">#ff5a75</span> · JPG <span style="color:#8a8aff">#8a8aff</span></p>
+
+<pre data-cat="[ 1 ] LOGO — warna #e4002b">&lt;article class="fd-card reveal" data-cat="logo" style="--tc:#e4002b" data-creator="Karya Asli — Arcivamile" data-date="1 Jan 2026" data-format="AI / PNG" data-size="10 MB" data-license="Free personal &amp;amp; commercial"&gt;
+  &lt;span class="fd-card-badge"&gt;CONTOH // SALIN &amp;amp; ISI&lt;/span&gt;
+  &lt;div class="fd-tile"&gt;
+    &lt;img class="fd-thumb" src="img/thumb/contoh-logo.png" alt="Logo Pack [NAMA KAMU]" onerror="this.remove()"&gt;
+    &lt;span&gt;L&lt;/span&gt;
+    &lt;b&gt;LOGO&lt;/b&gt;
+  &lt;/div&gt;
+  &lt;div class="fd-body"&gt;
+    &lt;span class="fd-cat"&gt;LOGO&lt;/span&gt;
+    &lt;h3&gt;Logo Pack [NAMA KAMU]&lt;/h3&gt;
+    &lt;p&gt;Ganti deskripsi: jelaskan isi pack ini, jumlah file, dan cocok untuk apa.&lt;/p&gt;
+    &lt;div class="fd-meta"&gt;
+      &lt;span&gt;AI / PNG&lt;/span&gt;&lt;span&gt;10 MB&lt;/span&gt;&lt;span&gt;0 UNDUH&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;a href="#" target="_blank" rel="noopener" class="fd-btn"&gt;DOWNLOAD &#8595;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</pre>
+
+<pre data-cat="[ 2 ] FONT — warna #ff9a00">&lt;article class="fd-card reveal" data-cat="font" style="--tc:#ff9a00" data-creator="Karya Asli — Arcivamile" data-date="1 Jan 2026" data-format="TTF / OTF" data-size="1 MB" data-license="Free personal use"&gt;
+  &lt;span class="fd-card-badge"&gt;CONTOH // SALIN &amp;amp; ISI&lt;/span&gt;
+  &lt;div class="fd-tile"&gt;
+    &lt;img class="fd-thumb" src="img/thumb/contoh-font.png" alt="Font [NAMA FONT]" onerror="this.remove()"&gt;
+    &lt;span&gt;F&lt;/span&gt;
+    &lt;b&gt;FONT&lt;/b&gt;
+  &lt;/div&gt;
+  &lt;div class="fd-body"&gt;
+    &lt;span class="fd-cat"&gt;FONT&lt;/span&gt;
+    &lt;h3&gt;Font [NAMA FONT]&lt;/h3&gt;
+    &lt;p&gt;Ganti deskripsi: karakter font, berat/weight yang tersedia, dan lisensinya.&lt;/p&gt;
+    &lt;div class="fd-meta"&gt;
+      &lt;span&gt;TTF / OTF&lt;/span&gt;&lt;span&gt;1 MB&lt;/span&gt;&lt;span&gt;0 UNDUH&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;a href="#" target="_blank" rel="noopener" class="fd-btn"&gt;DOWNLOAD &#8595;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</pre>
+
+<pre data-cat="[ 3 ] PNG — warna #ff5a75">&lt;article class="fd-card reveal" data-cat="png" style="--tc:#ff5a75" data-creator="Karya Asli — Arcivamile" data-date="1 Jan 2026" data-format="PNG" data-size="15 MB" data-license="Free personal &amp;amp; commercial"&gt;
+  &lt;span class="fd-card-badge"&gt;CONTOH // SALIN &amp;amp; ISI&lt;/span&gt;
+  &lt;div class="fd-tile"&gt;
+    &lt;img class="fd-thumb" src="img/thumb/contoh-png.png" alt="PNG Element [NAMA]" onerror="this.remove()"&gt;
+    &lt;span&gt;P&lt;/span&gt;
+    &lt;b&gt;PNG&lt;/b&gt;
+  &lt;/div&gt;
+  &lt;div class="fd-body"&gt;
+    &lt;span class="fd-cat"&gt;PNG&lt;/span&gt;
+    &lt;h3&gt;PNG Element [NAMA]&lt;/h3&gt;
+    &lt;p&gt;Ganti deskripsi: elemen transparan apa saja, resolusi, dan background apa.&lt;/p&gt;
+    &lt;div class="fd-meta"&gt;
+      &lt;span&gt;PNG&lt;/span&gt;&lt;span&gt;15 MB&lt;/span&gt;&lt;span&gt;0 UNDUH&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;a href="#" target="_blank" rel="noopener" class="fd-btn"&gt;DOWNLOAD &#8595;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</pre>
+
+<pre data-cat="[ 4 ] JPG — warna #8a8aff">&lt;article class="fd-card reveal" data-cat="jpg" style="--tc:#8a8aff" data-creator="Karya Asli — Arcivamile" data-date="1 Jan 2026" data-format="JPG" data-size="25 MB" data-license="Free personal use"&gt;
+  &lt;span class="fd-card-badge"&gt;CONTOH // SALIN &amp;amp; ISI&lt;/span&gt;
+  &lt;div class="fd-tile"&gt;
+    &lt;img class="fd-thumb" src="img/thumb/contoh-jpg.jpg" alt="JPG Background [NAMA]" onerror="this.remove()"&gt;
+    &lt;span&gt;J&lt;/span&gt;
+    &lt;b&gt;JPG&lt;/b&gt;
+  &lt;/div&gt;
+  &lt;div class="fd-body"&gt;
+    &lt;span class="fd-cat"&gt;JPG&lt;/span&gt;
+    &lt;h3&gt;JPG Background [NAMA]&lt;/h3&gt;
+    &lt;p&gt;Ganti deskripsi: latar apa, resolusi, dan tone warnanya.&lt;/p&gt;
+    &lt;div class="fd-meta"&gt;
+      &lt;span&gt;JPG&lt;/span&gt;&lt;span&gt;25 MB&lt;/span&gt;&lt;span&gt;0 UNDUH&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;a href="#" target="_blank" rel="noopener" class="fd-btn"&gt;DOWNLOAD &#8595;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</pre>
+
+<p>Setelah kartu disalin ke arsip.html, file ini boleh dihapus (tidak dipakai website).</p>
+
+</body>
+</html>

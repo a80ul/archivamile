@@ -1,5 +1,5 @@
 /* ============================================================
-   ARCHIVAMILE — FREEBIES / FREE DROP page styles
+   ARCIVAMILE — FREEBIES / FREE DROP page styles
    Reuses theme tokens from style.css
    ============================================================ */
 
@@ -184,6 +184,19 @@ body.entered .fd-title .line-2 { animation: lineIn 1s cubic-bezier(.7,0,.3,1) .2
 .fd-card:hover::after { opacity: 1; inset: 8px; }
 .fd-card.hide { display: none; }
 
+/* badge contoh / template di kartu */
+.fd-card-badge {
+  position: absolute;
+  top: 10px; right: 10px;
+  z-index: 3;
+  font-family: var(--font-mono);
+  font-size: 8.5px; letter-spacing: .2em;
+  color: #000;
+  background: var(--yellow);
+  padding: 5px 8px;
+  clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+}
+
 /* tile preview */
 .fd-tile {
   position: relative;
@@ -217,6 +230,15 @@ body.entered .fd-title .line-2 { animation: lineIn 1s cubic-bezier(.7,0,.3,1) .2
   text-shadow: 0 0 40px var(--tc, var(--red));
   transition: transform .45s cubic-bezier(.34,1.56,.64,1);
 }
+.fd-tile img.fd-thumb {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: transform .45s cubic-bezier(.34,1.56,.64,1);
+}
+.fd-card:hover .fd-tile img.fd-thumb { transform: scale(1.08); }
+.fd-tile img.fd-thumb ~ span { display: none; }
 .fd-card:hover .fd-tile span { transform: scale(1.14) rotate(-5deg); }
 .fd-tile b {
   position: absolute; bottom: 12px; left: 14px; z-index: 2;
@@ -485,3 +507,259 @@ body.entered .fd-title .line-2 { animation: lineIn 1s cubic-bezier(.7,0,.3,1) .2
   55% { left: 130%; }
   100% { left: 130%; }
 }
+
+/* ============================================================
+   NAVIGASI HALAMAN BERIKUT
+   ============================================================ */
+.fd-next {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.fd-next-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 80px 24px;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+}
+.fd-next-link::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(55% 90% at 50% 100%, rgba(228,0,43,.16), transparent 70%);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.fd-next-link:hover::before { opacity: 1; }
+.fd-next-label {
+  position: relative; z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .3em;
+  color: var(--muted);
+}
+.fd-next-title {
+  position: relative; z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(38px, 7vw, 74px);
+  line-height: 1;
+  color: var(--text);
+  transition: color .3s ease;
+}
+.fd-next-arrow {
+  position: relative; z-index: 1;
+  display: inline-block;
+  margin-left: 16px;
+  color: var(--red);
+  transition: transform .3s ease;
+}
+.fd-next-link:hover .fd-next-title { color: var(--red); }
+.fd-next-link:hover .fd-next-arrow { transform: translateX(12px); }
+
+/* ============================================================
+   CATATAN ARSIP
+   ============================================================ */
+.fd-note {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--red);
+  background: var(--bg-2);
+}
+.fd-note-label {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 9px; letter-spacing: .3em;
+  color: var(--red);
+  padding-top: 2px;
+}
+.fd-note p {
+  color: var(--muted);
+  font-size: 12.5px; line-height: 1.7;
+  margin: 0;
+}
+.fd-note p b { color: var(--text); font-weight: 500; }
+
+/* ============================================================
+   KATEGORI KOSONG
+   ============================================================ */
+.fd-empty {
+  display: none;
+  margin-top: 36px;
+  padding: 64px 24px;
+  text-align: center;
+  border: 1px dashed var(--border-strong);
+  background: var(--bg-2);
+  position: relative;
+  overflow: hidden;
+}
+.fd-empty.show { display: block; animation: fdEmptyIn .4s cubic-bezier(.2,.7,.2,1); }
+.fd-empty::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(var(--halftone) 1px, transparent 1.2px);
+  background-size: 10px 10px;
+  opacity: .5;
+  pointer-events: none;
+}
+.fd-empty > * { position: relative; }
+.fd-empty-label {
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: .3em;
+  color: var(--red);
+  animation: preBlink 2.5s steps(2) infinite;
+}
+.fd-empty h3 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4vw, 40px);
+  margin: 14px 0 10px;
+  color: var(--text);
+}
+.fd-empty p {
+  color: var(--muted);
+  font-size: 14px; line-height: 1.7;
+  max-width: 460px;
+  margin: 0 auto 22px;
+}
+@keyframes fdEmptyIn { from { opacity: 0; transform: translateY(16px); } }
+
+/* ============================================================
+   POPUP INFO DOWNLOAD
+   ============================================================ */
+.fd-modal {
+  position: fixed; inset: 0; z-index: 4000;
+  display: none;
+  place-items: center;
+  padding: 20px;
+}
+.fd-modal.show { display: grid; }
+.fd-modal-bg {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(4px);
+  animation: fdModalFade .3s ease;
+}
+.fd-modal-panel {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 480px;
+  background: var(--bg-2);
+  border: 1px solid var(--border-strong);
+  padding: 34px;
+  clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+  animation: fdModalIn .35s cubic-bezier(.2,.7,.2,1);
+}
+.fd-modal-cat {
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: .3em;
+  color: var(--red);
+  border: 1px solid var(--border-strong);
+  padding: 5px 10px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+.fd-modal-panel h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.fd-modal-panel > p {
+  color: var(--muted);
+  font-size: 13.5px; line-height: 1.7;
+  margin-bottom: 0;
+}
+.fd-modal-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 20px 0;
+}
+.fd-modal-info > div {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  background: var(--bg);
+}
+.fd-modal-info span {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9px; letter-spacing: .25em;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.fd-modal-info b {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+.fd-modal-license { grid-column: 1 / -1; }
+.fd-modal-license b { color: var(--red); }
+.fd-modal-note {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+  border-left: 2px solid var(--red);
+  padding-left: 12px;
+}
+.fd-modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}
+.fd-modal-actions .btn { flex: 1; }
+
+/* ============================================================
+   GATE ANTI-SPAM — verifikasi manusia di popup download
+   ============================================================ */
+.fd-modal-guard { margin-top: 18px; }
+.fd-guard-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border: 1px dashed var(--border);
+  background: var(--bg);
+  border-radius: 6px;
+}
+.fd-guard-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: .25em;
+  color: var(--muted);
+}
+.fd-guard-fallback {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  background: #f4f4f5;
+  color: #111;
+  border: 0;
+  border-radius: 4px;
+  padding: 10px 24px;
+  cursor: pointer;
+}
+.fd-guard-fallback:hover { background: #ffd400; }
+.fd-guard-msg {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  color: var(--red);
+  min-height: 12px;
+  margin: 0;
+  text-align: center;
+}
+#fdModal a.btn.locked {
+  opacity: .45;
+  pointer-events: none;
+}
+@keyframes fdModalFade { from { opacity: 0; } }
+@keyframes fdModalIn {
+  from { opacity: 0; transform: translateY(26px) scale(.96); }
+}
+
