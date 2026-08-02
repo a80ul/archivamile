@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FREE DROP // ARCHIVAMILE — Aset Desain Gratis</title>
+  <script>
+    (function () {
+      var t = localStorage.getItem('zzz-theme');
+      if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/freebies.css">
+</head>
+<body>
+
+  <!-- ===== INTRO ===== -->
+  <div class="intro" id="intro">
+    <div class="intro-noise"></div>
+    <div class="intro-halftone"></div>
+    <button class="intro-skip" id="introSkip">SKIP &#9658;</button>
+    <div class="intro-center">
+      <div class="intro-logo" id="introLogo">
+        <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
+          <defs>
+            <linearGradient id="lgIntroFd" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff5a75"/>
+              <stop offset="0.55" stop-color="#e4002b"/>
+              <stop offset="1" stop-color="#7a0013"/>
+            </linearGradient>
+          </defs>
+          <path d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z" fill="url(#lgIntroFd)"/>
+          <path d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+          <path d="M24 12.5 L34.5 35.5 H30.4 L24 21 L17.6 35.5 H13.5 Z" fill="#fff"/>
+          <path d="M33.2 10 L35.6 12.4 L33.2 14.8 L30.8 12.4 Z" fill="#ffd400"/>
+        </svg>
+      </div>
+      <h1 class="intro-name" id="introName">FREE DROP</h1>
+      <p class="intro-sub">ARSIP ASET GRATIS // ARCHIVAMILE</p>
+      <div class="intro-bar"><i></i></div>
+      <p class="intro-loading">MEMBUKA FREEBIES<span class="load-dots">...</span></p>
+    </div>
+  </div>
+
+  <!-- ===== THEME FLASH ===== -->
+  <div class="theme-flash" id="themeFlash"></div>
+
+  <!-- ===== SCROLL PROGRESS ===== -->
+  <div class="scroll-progress"><i id="scrollBar"></i></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <span class="nav-corner nc-tl"></span>
+      <span class="nav-corner nc-tr"></span>
+      <span class="nav-corner nc-bl"></span>
+      <span class="nav-corner nc-br"></span>
+
+      <a href="index.html" class="logo" data-logo>
+        <span class="logo-box">
+          <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
+            <defs>
+              <linearGradient id="lgNavFd" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff5a75"/>
+                <stop offset="0.55" stop-color="#e4002b"/>
+                <stop offset="1" stop-color="#7a0013"/>
+              </linearGradient>
+            </defs>
+            <path d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z" fill="url(#lgNavFd)"/>
+            <path d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+            <path d="M24 12.5 L34.5 35.5 H30.4 L24 21 L17.6 35.5 H13.5 Z" fill="#fff"/>
+            <path d="M33.2 10 L35.6 12.4 L33.2 14.8 L30.8 12.4 Z" fill="#ffd400"/>
+          </svg>
+        </span>
+        <span class="logo-text">RCHIVAMILE<span class="logo-dot">.</span></span>
+      </a>
+      <span class="nav-tag"><i></i><b>FREE DROP</b> // 2026</span>
+      <span class="nav-stripe" aria-hidden="true"></span>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html#home" class="nav-link" data-num="01"><span class="nav-txt">Home</span></a>
+        <a href="index.html#about" class="nav-link" data-num="02"><span class="nav-txt">About</span></a>
+        <a href="index.html#skills" class="nav-link" data-num="03"><span class="nav-txt">Skills</span></a>
+        <a href="index.html#projects" class="nav-link" data-num="04"><span class="nav-txt">Projects</span></a>
+        <a href="index.html#contact" class="nav-link" data-num="05"><span class="nav-txt">Contact</span></a>
+        <a href="freebies.html" class="nav-link active" data-num="06"><span class="nav-txt">Freebies</span></a>
+        <span class="nav-indicator" id="navIndicator"></span>
+      </nav>
+
+      <div class="navbar-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema cahaya">
+          <span class="tt-sun">&#9728;</span>
+          <span class="tt-knob"></span>
+          <span class="tt-moon">&#9788;</span>
+        </button>
+        <a href="index.html#projects" class="nav-cta">Lihat Karya<span class="cta-corners"></span></a>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE MENU ===== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-bg" id="mobileMenuBg"></div>
+    <nav class="mobile-menu-links">
+      <a href="index.html#home" data-num="01">Home</a>
+      <a href="index.html#about" data-num="02">About</a>
+      <a href="index.html#skills" data-num="03">Skills</a>
+      <a href="index.html#projects" data-num="04">Projects</a>
+      <a href="index.html#contact" data-num="05">Contact</a>
+      <a href="freebies.html" data-num="06" class="active">Freebies</a>
+      <a href="https://www.behance.net/archivamile" target="_blank" rel="noopener" data-num="07">Behance</a>
+    </nav>
+    <div class="mobile-menu-foot">
+      <span>LINK AKTIF // FREE DROP</span>
+      <span class="mm-static">&#9612;&#9612;&#9612;&#9612;&#9612;&#9612;&#9612;</span>
+    </div>
+  </div>
+
+  <!-- ===== HERO FREEBIES ===== -->
+  <section class="fd-hero" id="top">
+    <div class="hero-halftone"></div>
+    <div class="fd-grid-bg" aria-hidden="true"></div>
+    <svg class="fd-reticle" viewBox="0 0 100 100" aria-hidden="true">
+      <g fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.2">
+        <circle cx="50" cy="50" r="20"/>
+        <circle cx="50" cy="50" r="42" stroke-dasharray="3 7" opacity=".4"/>
+        <line x1="50" y1="18" x2="50" y2="30"/>
+        <line x1="50" y1="70" x2="50" y2="82"/>
+        <line x1="18" y1="50" x2="30" y2="50"/>
+        <line x1="70" y1="50" x2="82" y2="50"/>
+      </g>
+    </svg>
+    <div class="fd-vert vert-l">ASET GRATIS // VOL.01</div>
+    <div class="fd-vert vert-r">DOWNLOAD / ARCHIVAMILE</div>
+
+    <div class="fd-hero-inner">
+      <div class="hero-brackets" aria-hidden="true">
+        <i class="br-tl"></i><i class="br-tr"></i><i class="br-bl"></i><i class="br-br"></i>
+      </div>
+      <p class="hero-kicker reveal">// FREE DROP — ARSIP ASET DESAIN GRATIS</p>
+      <h1 class="fd-title">
+        <span class="line line-1">
+          <span class="glitch" data-text="FREE">FREE</span>
+        </span>
+        <span class="line line-2">
+          <span class="glitch" data-text="DROP.">DROP.</span>
+        </span>
+      </h1>
+      <p class="hero-sub reveal">Aset desain <b>gratis</b> dari Archivamile — <span class="hl">logo pack</span>, <span class="hl">mockup</span>, <span class="hl">font</span>, tekstur, sampai template siap pakai. Unduh, pakai, dan beri kredit.</p>
+      <div class="fd-chips reveal">
+        <span class="fd-chip">100% GRATIS</span>
+        <span class="fd-chip fd-chip-yellow">FILE SIAP PAKAI</span>
+        <span class="fd-chip">UPDATE RUTIN</span>
+        <span class="fd-chip fd-chip-fill">NO PAYWALL</span>
+      </div>
+      <div class="fd-stats reveal">
+        <div class="fd-stat"><b id="fdTotal">08</b><span>ARSIP</span></div>
+        <div class="fd-stat"><b>06</b><span>KATEGORI</span></div>
+        <div class="fd-stat"><b>100%</b><span>GRATIS</span></div>
+        <div class="fd-stat"><b>FREE</b><span>LICENSE</span></div>
+      </div>
+    </div>
+
+    <div class="fd-tape" aria-hidden="true"></div>
+    <div class="hero-fade" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>LOGO PACK&nbsp;&nbsp;&#10022;&nbsp;&nbsp;MOCKUP&nbsp;&nbsp;&#10022;&nbsp;&nbsp;FONT&nbsp;&nbsp;&#10022;&nbsp;&nbsp;TEKSTUR&nbsp;&nbsp;&#10022;&nbsp;&nbsp;TEMPLATE&nbsp;&nbsp;&#10022;&nbsp;&nbsp;ICON SET&nbsp;&nbsp;&#10022;&nbsp;&nbsp;PATTERN&nbsp;&nbsp;&#10022;&nbsp;&nbsp;</span>
+      <span>LOGO PACK&nbsp;&nbsp;&#10022;&nbsp;&nbsp;MOCKUP&nbsp;&nbsp;&#10022;&nbsp;&nbsp;FONT&nbsp;&nbsp;&#10022;&nbsp;&nbsp;TEKSTUR&nbsp;&nbsp;&#10022;&nbsp;&nbsp;TEMPLATE&nbsp;&nbsp;&#10022;&nbsp;&nbsp;ICON SET&nbsp;&nbsp;&#10022;&nbsp;&nbsp;PATTERN&nbsp;&nbsp;&#10022;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ===== FILTER ===== -->
+  <section class="section fd-section" id="freebies">
+    <div class="section-head reveal">
+      <span class="sec-num">[ 01 ]</span>
+      <h2 class="sec-title">FREE<span class="sec-title-accent">DROP</span></h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="fd-filter reveal" id="fdFilter">
+      <button class="fd-filter-btn active" data-filter="all">SEMUA</button>
+      <button class="fd-filter-btn" data-filter="logo">LOGO</button>
+      <button class="fd-filter-btn" data-filter="mockup">MOCKUP</button>
+      <button class="fd-filter-btn" data-filter="font">FONT</button>
+      <button class="fd-filter-btn" data-filter="tekstur">TEKSTUR</button>
+      <button class="fd-filter-btn" data-filter="template">TEMPLATE</button>
+      <span class="fd-count" id="fdCount">08 / 08</span>
+    </div>
+
+    <!--
+      ===== CARA TAMBAH ASET BARU =====
+      1. Salin satu blok <article class="fd-card"> di bawah, lalu ubah:
+         - data-cat   : kategori (logo / mockup / font / tekstur / template)
+         - style="--tc:#hex" : warna aksen kartu (opsional)
+         - .fd-tile span     : huruf besar di preview (mis. "L")
+         - judul & deskripsi
+         - .fd-meta  : format, ukuran file, jumlah unduhan
+         - href pada <a class="fd-btn">  : LINK DOWNLOAD aset kamu
+           (contoh: https://drive.google.com/..., https://www.mediafire.com/...)
+      2. Total arsip di <b id="fdTotal">08</b> (hero) boleh diubah sesuai jumlah kartu.
+    -->
+
+    <div class="fd-grid" id="fdGrid">
+      <article class="fd-card reveal" data-cat="logo" style="--tc:#e4002b">
+        <div class="fd-tile">
+          <span>L</span>
+          <b>LOGO PACK</b>
+        </div>
+        <div class="fd-body">
+          <span class="fd-cat">LOGO</span>
+          <h3>Logo Pack Vol.01</h3>
+          <p>Kumpulan logo minimalist &amp; monogram siap pakai untuk brand starter.</p>
+          <div class="fd-meta">
+            <span>AI / PNG</span><span>12 MB</span><span>1.2K UNDUH</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="fd-btn">DOWNLOAD &#8595;<span></span></a>
+        </div>
+      </article>
+
+      <article class="fd-card reveal" data-cat="mockup" style="--tc:#31a8ff">
+        <div class="fd-tile">
+          <span>M</span>
+          <b>MOCKUP</b>
+        </div>
+        <div class="fd-body">
+          <span class="fd-cat">MOCKUP</span>
+          <h3>Mockup Kemasan Botol</h3>
+          <p>Mockup botol kaca siap pakai — cukup drag &amp; drop desain label kamu.</p>
+          <div class="fd-meta">
+            <span>PSD</span><span>85 MB</span><span>890 UNDUH</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="fd-btn">DOWNLOAD &#8595;<span></span></a>
+        </div>
+      </article>
+
+      <article class="fd-card reveal" data-cat="font" style="--tc:#ff9a00">
+        <div class="fd-tile">
+          <span>F</span>
+          <b>FONT</b>
+        </div>
+        <div class="fd-body">
+          <span class="fd-cat">FONT</span>
+          <h3>Arsiv Grotesk</h3>
+          <p>Font sans-serif geometris dengan karakter tajam ala arsip kota.</p>
+          <div class="fd-meta">
+            <span>TTF / OTF</span><span>2 MB</span><span>2.4K UNDUH</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="fd-btn">DOWNLOAD &#8595;<span></span></a>
+        </div>
+      </article>
+
+      <article class="fd-card reveal" data-cat="tekstur" style="--tc:#8a8aff">
+        <div class="fd-tile">
+          <span>T</span>
+          <b>TEKSTUR</b>
+        </div>
+        <div class="fd-body">
+          <span class="fd-cat">TEKSTUR</span>
+          <h3>Grunge Paper Set</h3>
+          <p>Tekstur kertas kasar &amp; goresan untuk efek vintage pada desain.</p>
+          <div class="fd-meta">
+            <span>JPG</span><span>24 MB</span><span>640 UNDUH</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="fd-btn">DOWNLOAD &#8595;<span></span></a>
+        </div>
+      </article>
+
+      <article class="fd-card reveal" data-cat="template" style="--tc:#f05a28">
+        <div class="fd-tile">
+          <span>P</span>
+          <b>TEMPLATE</b>
+        </div>
+        <div class="fd-body">
+          <span class="fd-cat">TEMPLATE</span>
+          <h3>Poster A3 Grid System</h3>
+          <p>Template poster A3 dengan grid &amp; guide cetak siap edar.</p>
+          <div class="fd-meta">
+            <span>AI / PDF</span><span>6 MB</span><span>980 UNDUH</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="fd-btn">DOWNLOAD &#8595;<span></span></a>
+        </div>
+      </article>
+
+      <article class="fd-card reveal" data-cat="logo" style="--tc:#e4002b">
+        <div class="fd-tile">
+          <span>I</span>
+          <b>ICON SET</b>
+        </div>
+        <div class="fd-body">
+          <span class="fd-cat">LOGO</span>
+          <h3>Icon Set Vektor</h3>
+          <p>48 ikon garis tebal untuk UI, infografis, dan materi promosi.</p>
+          <div class="fd-meta">
+            <span>SVG</span><span>1.5 MB</span><span>1.6K UNDUH</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="fd-btn">DOWNLOAD &#8595;<span></span></a>
+        </div>
+      </article>
+
+      <article class="fd-card reveal" data-cat="tekstur" style="--tc:#ffd400">
+        <div class="fd-tile">
+          <span>H</span>
+          <b>PATTERN</b>
+        </div>
+        <div class="fd-body">
+          <span class="fd-cat">TEKSTUR</span>
+          <h3>Halftone &amp; Dot Pattern</h3>
+          <p>Pola halftone klasik ala komik untuk aksen desain retro.</p>
+          <div class="fd-meta">
+            <span>AI / PNG</span><span>3 MB</span><span>2.1K UNDUH</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="fd-btn">DOWNLOAD &#8595;<span></span></a>
+        </div>
+      </article>
+
+      <article class="fd-card reveal" data-cat="template" style="--tc:#4ade80">
+        <div class="fd-tile">
+          <span>C</span>
+          <b>PRINT GUIDE</b>
+        </div>
+        <div class="fd-body">
+          <span class="fd-cat">TEMPLATE</span>
+          <h3>Cetak &amp; Potong Guide</h3>
+          <p>Dokumen panduan persiapan file cetak: bleed, margin, dan warna.</p>
+          <div class="fd-meta">
+            <span>PDF</span><span>4 MB</span><span>510 UNDUH</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="fd-btn">DOWNLOAD &#8595;<span></span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== REQUEST ASET + DROP LOG ===== -->
+  <section class="section fd-section" id="request">
+    <div class="section-head reveal">
+      <span class="sec-num">[ 02 ]</span>
+      <h2 class="sec-title">REQUEST<span class="sec-title-accent">SET</span></h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="fd-req-grid">
+      <div class="fd-req-form reveal">
+        <span class="cp-label">FORM // PERMINTAAN ASET</span>
+        <h3>Ada aset yang <span class="hl">kamu mau?</span></h3>
+        <p>Tulis aset impianmu di bawah — kalau masuk akal, langsung kudrop gratis di update berikutnya.</p>
+        <form id="reqForm" class="contact-form">
+          <label for="reqInput">NAMA ASET / KATEGORI</label>
+          <input type="text" id="reqInput" placeholder="contoh: logo pack kosmetik, mockup kardus..." required>
+          <button type="submit" class="form-btn" id="reqBtn">KIRIM PERMINTAAN &#8594;</button>
+        </form>
+        <div class="fd-req-ok" id="reqOk">
+          <span class="fd-req-check">
+            <svg viewBox="0 0 52 52" aria-hidden="true">
+              <circle class="fd-ck-circle" cx="26" cy="26" r="24"/>
+              <path class="fd-ck-mark" d="M14.5 27 L23 35.5 L38 17.5"/>
+            </svg>
+          </span>
+          <h4>PERMINTAAN MASUK ARSIP!</h4>
+          <p>Terima kasih — aset ini masuk daftar drop berikutnya.</p>
+          <span class="fd-req-shine" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="fd-cta">
+    <div class="hero-halftone"></div>
+    <div class="fd-cta-inner reveal">
+      <span class="cp-label">SINYAL TERHUBUNG // 100%</span>
+      <h2 class="fd-cta-title">BUTUH ASET <span class="hl">KHUSUS?</span></h2>
+      <p>Ada aset yang kamu butuhkan tapi belum ada di arsip? Kirim permintaan — kuyakin bisa kubuatkan.</p>
+      <div class="hero-cta">
+        <a href="index.html#contact" class="btn btn-red">Ajukan Permintaan<span></span></a>
+        <a href="index.html" class="btn btn-ghost">Kembali ke Portofolio<span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-noise"></div>
+    <p>&copy; 2026 Abdul Aziz — Archivamile. Semua aset gratis untuk penggunaan personal &amp; komersial dengan kredit.</p>
+  </footer>
+
+  <!-- cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <script src="js/freebies.js"></script>
+</body>
+</html>
