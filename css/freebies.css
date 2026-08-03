@@ -770,6 +770,75 @@ body.entered .fd-title .line-2 { animation: lineIn 1s cubic-bezier(.7,0,.3,1) .2
 }
 .fd-modal-actions .btn { flex: 1; }
 
+/* ---------- popup responsive (HP / tablet / iPhone) ---------- */
+.fd-modal,
+.fd-legal-modal,
+.fd-wn-modal {
+  padding:
+    max(20px, env(safe-area-inset-top))
+    max(20px, env(safe-area-inset-right))
+    max(20px, env(safe-area-inset-bottom))
+    max(20px, env(safe-area-inset-left));
+}
+.fd-modal-panel {
+  max-height: min(82vh, 760px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--red) transparent;
+}
+.fd-modal-panel::-webkit-scrollbar { width: 6px; }
+.fd-modal-panel::-webkit-scrollbar-thumb { background: var(--red); }
+
+@media (max-width: 768px) {
+  .fd-modal,
+  .fd-legal-modal,
+  .fd-wn-modal { padding: 14px; }
+  .fd-modal-panel { padding: 26px 22px 22px; }
+  .fd-wn-panel,
+  .fd-legal-panel { max-height: calc(100dvh - 28px); }
+  .fd-wn-body,
+  .fd-legal-body { padding: 14px 16px 18px; }
+  .fd-wn-head,
+  .fd-legal-head { padding: 14px 16px; }
+}
+
+@media (max-width: 560px) {
+  .fd-modal,
+  .fd-legal-modal,
+  .fd-wn-modal { padding: 10px; }
+  .fd-modal-panel {
+    padding: 20px 18px 18px;
+    max-height: calc(100dvh - 20px);
+  }
+  .fd-modal-panel h3 { font-size: 20px; }
+  .fd-modal-info {
+    gap: 8px;
+    margin: 16px 0;
+  }
+  .fd-modal-info > div { padding: 8px 10px; }
+  .fd-modal-actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .fd-modal-actions .btn {
+    width: 100%;
+    flex: none;
+  }
+  .fd-guard-box {
+    padding: 12px 8px;
+    overflow-x: auto;
+  }
+  .fd-wn-panel,
+  .fd-legal-panel { width: min(540px, 100%); }
+}
+
+@media (max-width: 380px) {
+  .fd-modal-info { grid-template-columns: 1fr; }
+  .fd-modal-info .fd-modal-license { grid-column: auto; }
+}
+
 /* ============================================================
    GATE ANTI-SPAM — verifikasi manusia di popup download
    ============================================================ */
