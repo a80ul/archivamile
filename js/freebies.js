@@ -4,6 +4,19 @@
 const REQUEST_WA = '';
 const REQUEST_EMAIL = 'arcivamile@gmail.com';
 
+/* ---------- DATA WHAT'S NEW (rilis aset terbaru — naikkan WN_VERSION kalau popup mau muncul lagi) ---------- */
+const WHATS_NEW = [
+  {
+    date: '03 AUG 2026',
+    tag: 'PNG',
+    color: '#ff5a75',
+    image: 'img/thumb/pngmilkseries.jpg',
+    title: 'MILKY CUP — MINI SERIES',
+    desc: 'Rilisan terbaru di kategori PNG: elemen transparan siap pakai untuk proyekmu. Langsung unduh di halaman Arsip.'
+  }
+];
+const WN_VERSION = 'v3';
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- INTRO ---------- */
@@ -33,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.documentElement.classList.remove('no-scroll');
       document.body.classList.add('entered');
       navbar.classList.add('loaded');
+      maybeShowWhatNew();
     }, 980);
   };
 
@@ -47,6 +61,47 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') enterIntro();
   });
+
+  /* ---------- WHAT'S NEW — data update di halaman ---------- */
+  let maybeShowWhatNew = () => {};
+  const buildWnItem = (u) =>
+    '<div class="fd-wn-item">' +
+    (u.image ? '<div class="fd-wn-img"><img src="' + u.image + '" alt="' + u.title + '"></div>' : '') +
+    '<div class="fd-wn-meta">' +
+    '<span class="fd-wn-date">' + u.date + '</span>' +
+    '<span class="fd-wn-tag" style="background:' + (u.color || '#ffd400') + '">' + u.tag + '</span></div>' +
+    '<div class="fd-wn-body-txt"><h3>' + u.title + '</h3><p>' + u.desc + '</p></div></div>';
+
+  /* ---------- POPUP WHAT'S NEW (muncul sekali per versi) ---------- */
+  const wnModal = document.getElementById('wnModal');
+  if (wnModal) {
+    const wnBody = document.getElementById('wnBody');
+    const wnOk = document.getElementById('wnOk');
+    const wnBg = document.getElementById('wnBg');
+    const wnClose = document.getElementById('wnClose');
+    wnBody.innerHTML = WHATS_NEW.map(buildWnItem).join('');
+
+    const openWn = () => {
+      wnModal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeWn = () => {
+      wnModal.classList.remove('show');
+      document.body.style.overflow = '';
+      localStorage.setItem('zzz-wn-seen', WN_VERSION);
+    };
+    maybeShowWhatNew = () => {
+      if (localStorage.getItem('zzz-wn-seen') === WN_VERSION) return;
+      setTimeout(openWn, 900);
+    };
+
+    wnOk.addEventListener('click', closeWn);
+    wnClose.addEventListener('click', closeWn);
+    wnBg.addEventListener('click', closeWn);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && wnModal.classList.contains('show')) closeWn();
+    });
+  }
 
   /* ---------- TV STATIC OVERLAY ---------- */
   const tv = document.createElement('div');
