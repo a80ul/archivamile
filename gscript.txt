@@ -1,0 +1,119 @@
+// ============================================================
+// ARCIVAMILE — Google Apps Script (GAS) untuk Upload Aset
+// ============================================================
+// CARA PAKAI:
+// 1. Buat Google Sheet baru, catat Sheet ID-nya
+//    (dari URL: docs.google.com/spreadsheets/d/SHEET_ID/edit)
+// 2. Buat folder di Google Drive, catat Folder ID-nya
+//    (dari URL: drive.google.com/drive/folders/FOLDER_ID)
+// 3. Buka script.google.com > buat project baru
+// 4. Paste kode ini ke Code.gs
+// 5. Ganti FOLDER_ID dan SHEET_ID di bawah dengan ID yang sudah dicatat
+// 6. Deploy > New Deployment > Web App
+//    - Execute as: Me
+//    - Who has access: Anyone
+// 7. Copy URL Web App, paste ke GAS_URL di js/freebies.js
+// 8. Buka upload.html di browser, test upload
+// ============================================================
+
+const FOLDER_ID = 'YOUR_DRIVE_FOLDER_ID_HERE';
+const SHEET_ID = 'YOUR_GOOGLE_SHEET_ID_HERE';
+
+function doGet(e) {
+  return ContentService.createTextOutput('OK — GAS is running. Use POST to upload.')
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+
+function parseMultipart(body, boundary) {
+  var parts = body.split('--' + boundary);
+  var fields = {};
+  var files = [];
+  for (var i = 0; i < parts.length; i++) {
+    var part = parts[i].trim();
+    if (part === '' || part === '--' || part === '--\r\n') continue;
+    var headerEnd = part.indexOf('\r\n\r\n');
+    if (headerEnd === -1) continue;
+    var headers = part.substring(0, headerEnd);
+    var bodyContent = part.substring(headerEnd + 4);
+    if (bodyContent.endsWith('\r\n')) bodyContent = bodyContent.substring(0, bodyContent.length - 2);
+    var disposition = headers.split('\r\n')[0];
+    var nameMatch = disposition.match(/name="([^"]+)"/);
+    var filenameMatch = disposition.match(/filename="([^"]+)"/);
+    if (nameMatch) {
+      var name = nameMatch[1];
+      if (filenameMatch && filenameMatch[1]) {
+        var contentType = headers.match(/Content-Type:\s*(.+)/);
+        files.push({
+          name: filenameMatch[1],
+          type: contentType ? contentType[1].trim() : 'application/octet-stream',
+          data: bodyContent
+        });
+      } else {
+        fields[name] = bodyContent;
+      }
+    }
+  }
+  return { fields: fields, files: files };
+}
+
+function doPost(e) {
+  var lock = LockService.getScriptLock();
+  lock.waitLock(30000);
+  try {
+    var boundary = e.postData.boundary;
+    var parsed = parseMultipart(e.postData.contents, boundary);
+    var fields = parsed.fields;
+    var files = parsed.files;
+
+    if (!fields.namaAset || !fields.kategori || !fields.kreator) {
+      throw new Error('Nama aset, kategori, dan nama kreator wajib diisi.');
+    }
+
+    var folder = DriveApp.getFolderById(FOLDER_ID);
+    var sheet = SpreadsheetApp.openById(SHEET_ID).getActiveSheet();
+    var fileResults = [];
+
+    for (var i = 0; i < files.length; i++) {
+      var fileInfo = files[i];
+      var blob = Utilities.newBlob(fileInfo.data, fileInfo.type, fileInfo.name);
+      var driveFile = folder.createFile(blob);
+      driveFile.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+      fileResults.push({
+        name: fileInfo.name,
+        url: driveFile.getUrl(),
+        size: fileInfo.data.length
+      });
+    }
+
+    sheet.appendRow([
+      new Date(),
+      fields.namaAset,
+      fields.kategori,
+      fields.deskripsi || '',
+      fields.kreator,
+      fileResults.map(function(f) { return f.name; }).join(', '),
+      fileResults.map(function(f) { return f.url; }).join(', ')
+    ]);
+
+    var response = JSON.stringify({
+      success: true,
+      message: 'Aset berhasil diunggah!',
+      files: fileResults
+    });
+
+    return HtmlService.createHtmlOutput(
+      '<script>window.parent.uploadComplete(' + response + ');</script>'
+    );
+
+  } catch (err) {
+    var response = JSON.stringify({
+      success: false,
+      error: err.message
+    });
+    return HtmlService.createHtmlOutput(
+      '<script>window.parent.uploadComplete(' + response + ');</script>'
+    );
+  } finally {
+    lock.releaseLock();
+  }
+}

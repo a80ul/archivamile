@@ -4,7 +4,7 @@
 const REQUEST_WA = '';
 const REQUEST_EMAIL = 'arcivamile@gmail.com';
 
-/* ---------- DATA WHAT'S NEW (rilis aset terbaru — naikkan WN_VERSION kalau popup mau muncul lagi) ---------- */
+/* ---------- DATA WHAT'S NEW  ---------- */
 const WHATS_NEW = [
   {
     date: '03 AUG 2026',
@@ -497,29 +497,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------- CUSTOM CURSOR ---------- */
+  /* ---------- CURSOR PLASMA + PARTIKEL ---------- */
   const cursor = document.getElementById('cursor');
-  const cursorDot = document.getElementById('cursorDot');
+
   let mx = 0, my = 0, cx = 0, cy = 0;
+  let lx = 0, ly = 0, lt = performance.now();
+  let burstTimer = null;
+
+  const sparkColors = ['#ffd000', '#ffb800', '#ff9a00', '#ff7a00', '#ff5a1f', '#ff3b30', '#e4002b'];
+
+  function spawnSpark(x, y, spd) {
+    const s = document.createElement('div');
+    s.className = 'spark';
+    const ang = Math.random() * Math.PI * 2;
+    const dist = 12 + Math.random() * 55 * Math.min(1, spd);
+    s.style.left = x + 'px';
+    s.style.top = y + 'px';
+    s.style.background = sparkColors[Math.floor(Math.random() * sparkColors.length)];
+    s.style.setProperty('--dx', Math.cos(ang) * dist + 'px');
+    s.style.setProperty('--dy', Math.sin(ang) * dist + 'px');
+    s.style.setProperty('--dur', (.22 + Math.random() * .28) + 's');
+    document.body.appendChild(s);
+    s.addEventListener('animationend', () => s.remove());
+  }
+
+  function sparkBurst(x, y) {
+    const n = 16 + Math.floor(Math.random() * 10);
+    for (let i = 0; i < n; i++) {
+      setTimeout(() => spawnSpark(x, y, .8 + Math.random() * 1), Math.random() * 180);
+    }
+  }
 
   window.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
-    cursorDot.style.left = mx + 'px';
-    cursorDot.style.top = my + 'px';
+    const now = performance.now();
+    const spd = Math.hypot(mx - lx, my - ly) / Math.max(16, now - lt);
+    if (spd > .2 && Math.random() < .95) spawnSpark(mx, my, spd);
+    if (spd > .6 && Math.random() < .5) spawnSpark(mx, my, spd);
+    lx = mx; ly = my; lt = now;
   });
 
+  setInterval(() => {
+    if (Math.random() < .9) spawnSpark(mx, my, .45 + Math.random() * .35);
+    if (Math.random() < .55) spawnSpark(mx, my, .5);
+  }, 60);
+
   const loop = () => {
-    cx += (mx - cx) * .16;
-    cy += (my - cy) * .16;
+    cx += (mx - cx) * .18;
+    cy += (my - cy) * .18;
     cursor.style.left = cx + 'px';
     cursor.style.top = cy + 'px';
     requestAnimationFrame(loop);
   };
   loop();
 
-  document.querySelectorAll('a, button, input, textarea, .fd-card, .channel').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
+  document.querySelectorAll('a[href], button, input, textarea, select, [role="button"], .fd-card, .channel').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      sparkBurst(mx, my);
+      burstTimer = setInterval(() => sparkBurst(mx, my), 320);
+    });
+    el.addEventListener('mouseleave', () => {
+      clearInterval(burstTimer);
+    });
   });
 
   /* ---------- MARQUEE INFO (freedrop) — pesan informasi acak ---------- */

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="dark">
+<html lang="id" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,7 @@
   <script>
     (function () {
       var t = localStorage.getItem('zzz-theme');
-      if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -292,8 +292,19 @@
   </footer>
 
   <!-- cursor -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="curGrad" x1="1" y1="1" x2="24" y2="31" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#ff5a4a"/>
+          <stop offset=".55" stop-color="#e4002b"/>
+          <stop offset="1" stop-color="#a3001f"/>
+        </linearGradient>
+      </defs>
+      <path class="cur-glow" d="M1 1 L1 26.5 L9 18.5 L14.5 31 L20 28.5 L14.5 16.5 L24 16.5 Z" fill="url(#curGrad)" stroke="#ff3b30" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+      <path class="cur-tip" d="M2.6 2.6 L2.6 20.5 L7.6 15.5 Z" fill="#ffb3a7" opacity=".9"/>
+    </svg>
+  </div>
 
   <!-- ===== POPUP LEGAL ===== -->
   <div class="fd-legal-modal" id="fdLegalModal">
