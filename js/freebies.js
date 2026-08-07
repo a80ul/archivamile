@@ -7,12 +7,12 @@ const REQUEST_EMAIL = 'arcivamile@gmail.com';
 /* ---------- DATA WHAT'S NEW  ---------- */
 const WHATS_NEW = [
   {
-    date: '03 AUG 2026',
+    date:  '7 AUG 2026',
     tag: 'PNG',
     color: '#ff5a75',
-    image: 'img/thumb/pngmilkseries.jpg',
-    title: 'MILKY CUP — MINI SERIES',
-    desc: 'Rilisan terbaru di kategori PNG: elemen transparan siap pakai untuk proyekmu. Langsung unduh di halaman Arsip.'
+    image: 'img/thumb/kaki5abc.jpg',
+    title: 'MASAKAN KAKI 5 - LITE',
+    desc: 'Rilisan terbaru di kategori PNG: Lengkapi desainmu sekarang juga, yuk liat rilisan terbaru MASAKAN KAKI 5 - LITE'
   }
 ];
 const WN_VERSION = 'v3';
