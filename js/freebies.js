@@ -4,7 +4,7 @@
 const REQUEST_WA = '';
 const REQUEST_EMAIL = 'arcivamile@gmail.com';
 
-/* ---------- DATA WHAT'S NEW  ---------- */
+/* ---------- DATA WHAT'S NEW (isi data rilisan aset terbaru) ---------- */
 const WHATS_NEW = [
   {
     date:  '7 AUG 2026',
@@ -15,7 +15,6 @@ const WHATS_NEW = [
     desc: 'Rilisan terbaru di kategori PNG: Lengkapi desainmu sekarang juga, yuk liat rilisan terbaru MASAKAN KAKI 5 - LITE'
   }
 ];
-const WN_VERSION = 'v3';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -72,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     '<span class="fd-wn-tag" style="background:' + (u.color || '#ffd400') + '">' + u.tag + '</span></div>' +
     '<div class="fd-wn-body-txt"><h3>' + u.title + '</h3><p>' + u.desc + '</p></div></div>';
 
-  /* ---------- POPUP WHAT'S NEW (muncul sekali per versi) ---------- */
+  /* ---------- POPUP WHAT'S NEW (muncul tiap masuk/refresh halaman) ---------- */
   const wnModal = document.getElementById('wnModal');
   if (wnModal) {
     const wnBody = document.getElementById('wnBody');
@@ -88,10 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeWn = () => {
       wnModal.classList.remove('show');
       document.body.style.overflow = '';
-      localStorage.setItem('zzz-wn-seen', WN_VERSION);
     };
     maybeShowWhatNew = () => {
-      if (localStorage.getItem('zzz-wn-seen') === WN_VERSION) return;
       setTimeout(openWn, 900);
     };
 
