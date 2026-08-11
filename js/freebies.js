@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---------- MOUSE PARALLAX (judul mengikuti kursor) ---------- */
+  /* ---------- MOUSE PARALLAX  ---------- */
   const fdHero = document.querySelector('.fd-hero');
   const fdHeroInner = document.querySelector('.fd-hero-inner');
   fdHero.addEventListener('mousemove', (e) => {
