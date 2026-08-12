@@ -10,7 +10,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-QKJG3S0D83');
+    window.addEventListener('load', function () { gtag('config', 'G-QKJG3S0D83'); });
   </script>
   <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -74,10 +74,13 @@
     ]
   }
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/archivo-black.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/space-grotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+    @font-face { font-family: "Archivo Black"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/archivo-black.woff2") format("woff2"); }
+    @font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/space-grotesk-400.woff2") format("woff2"); }
+    @font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/space-grotesk-700.woff2") format("woff2"); }
     :root { --red: #e4002b; --red-soft: #ff5a75; --dark: #0d0d0f; --text: #e8e6e3; --muted: #9a9894; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: "Space Grotesk", system-ui, sans-serif; background: var(--dark); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
@@ -88,7 +91,12 @@
     .brand .mark { width: 34px; height: 34px; background: linear-gradient(135deg, #ff5a75, #e4002b 55%, #7a0013); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); display: inline-block; }
     .brand b { font-size: 15px; }
     .brand .dot { color: var(--red); }
-    nav.main a { font-size: 13px; letter-spacing: .08em; color: var(--muted); margin-left: 22px; transition: color .2s; }
+    nav.main a { font-size: 13px; letter-spacing: .08em; color: var(--muted); margin-left: 18px; padding: 10px 6px; transition: color .2s; }
+    @media (max-width: 520px) {
+      header.site-nav { flex-wrap: wrap; row-gap: 10px; }
+      nav.main { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 12px; }
+      nav.main a { margin-left: 0; padding: 10px 12px; }
+    }
     nav.main a:hover { color: #fff; }
 
     section.hero { padding: 90px 0 70px; position: relative; }
@@ -110,7 +118,7 @@
     section.cats h2 { font-family: "Archivo Black", sans-serif; font-size: 22px; text-transform: uppercase; letter-spacing: .02em; margin-bottom: 24px; }
     section.cats h2 .hl { color: var(--red); }
     .cat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
-    .cat-tile { border: 1px solid #222; padding: 22px; transition: border-color .2s; }
+    .cat-tile { border: 1px solid #222; padding: 22px; color: var(--text); transition: border-color .2s; }
     .cat-tile:hover { border-color: var(--red); }
     .cat-tile b { font-family: "Archivo Black", sans-serif; font-size: 17px; letter-spacing: .06em; display: block; }
     .cat-tile span { font-size: 12px; color: var(--muted); margin-top: 6px; display: block; }
@@ -134,31 +142,33 @@
       </nav>
     </header>
 
-    <section class="hero">
-      <p class="kicker">Arsip aset desain gratis // Arcivamile</p>
-      <h1>Aset Desain <span class="hl">Gratis</span></h1>
-      <p class="answer">Arcivamile adalah arsip aset desain gratis yang menyediakan <b>logo, font, PNG, dan JPG</b> siap unduh tanpa biaya. Semua file adalah <b>100% karya asli</b>, gratis untuk penggunaan personal maupun komersial, dan tanpa paywall. Cukup buka arsip, verifikasi sebagai manusia, lalu download langsung.</p>
-      <div class="chips">
-        <span class="chip red">100% Gratis</span>
-        <span class="chip">File Siap Pakai</span>
-        <span class="chip">Personal &amp; Komersial</span>
-        <span class="chip">No Paywall</span>
-      </div>
-      <div class="cta">
-        <a class="btn red" href="arsip">Unduh Aset Gratis</a>
-        <a class="btn ghost" href="freedrop">Tentang Free Drop</a>
-      </div>
-    </section>
+    <main>
+      <section class="hero">
+        <p class="kicker">Arsip aset desain gratis // Arcivamile</p>
+        <h1>Aset Desain <span class="hl">Gratis</span></h1>
+        <p class="answer">Arcivamile adalah arsip aset desain gratis yang menyediakan <b>logo, font, PNG, dan JPG</b> siap unduh tanpa biaya. Semua file adalah <b>100% karya asli</b>, gratis untuk penggunaan personal maupun komersial, dan tanpa paywall. Cukup buka arsip, verifikasi sebagai manusia, lalu download langsung.</p>
+        <div class="chips">
+          <span class="chip red">100% Gratis</span>
+          <span class="chip">File Siap Pakai</span>
+          <span class="chip">Personal &amp; Komersial</span>
+          <span class="chip">No Paywall</span>
+        </div>
+        <div class="cta">
+          <a class="btn red" href="arsip">Unduh Aset Gratis</a>
+          <a class="btn ghost" href="freedrop">Tentang Free Drop</a>
+        </div>
+      </section>
 
-    <section class="cats">
-      <h2>Kategori <span class="hl">Aset Gratis</span></h2>
-      <div class="cat-grid">
-        <a class="cat-tile" href="arsip"><b>LOGO</b><span>Pack logo &amp; elemen identitas</span></a>
-        <a class="cat-tile" href="arsip"><b>FONT</b><span>Tipografi untuk berbagai gaya</span></a>
-        <a class="cat-tile" href="arsip"><b>PNG</b><span>Elemen transparan siap pakai</span></a>
-        <a class="cat-tile" href="arsip"><b>JPG</b><span>Gambar &amp; latar resolusi tinggi</span></a>
-      </div>
-    </section>
+      <section class="cats">
+        <h2>Kategori <span class="hl">Aset Gratis</span></h2>
+        <div class="cat-grid">
+          <a class="cat-tile" href="arsip"><b>LOGO</b><span>Pack logo &amp; elemen identitas</span></a>
+          <a class="cat-tile" href="arsip"><b>FONT</b><span>Tipografi untuk berbagai gaya</span></a>
+          <a class="cat-tile" href="arsip"><b>PNG</b><span>Elemen transparan siap pakai</span></a>
+          <a class="cat-tile" href="arsip"><b>JPG</b><span>Gambar &amp; latar resolusi tinggi</span></a>
+        </div>
+      </section>
+    </main>
   </div>
 
   <div class="wrap">

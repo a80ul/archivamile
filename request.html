@@ -10,13 +10,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-QKJG3S0D83');
+    window.addEventListener('load', function () { gtag('config', 'G-QKJG3S0D83'); });
   </script>
   <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
   <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="preload" href="fonts/archivo-black.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/space-grotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/jetbrains-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/jetbrains-mono-700.woff2" as="font" type="font/woff2" crossorigin>
   <title>REQUEST — Ajukan Saran Aset Desain Gratis | Arcivamile</title>
   <meta name="description" content="Aset desain yang kamu cari belum ada di arsip Arcivamile? Ajukan saran aset gratis — logo, font, PNG atau JPG — dan ikut menentukan rilis berikutnya.">
   <link rel="canonical" href="https://arcivamile.my.id/request">
@@ -71,9 +76,6 @@
       document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
     })();
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/freebies.css">
 </head>
@@ -164,6 +166,7 @@
     </div>
   </header>
 
+  <main>
   <!-- ===== MOBILE MENU ===== -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-bg" id="mobileMenuBg"></div>
@@ -282,6 +285,7 @@
   </section>
 
   <!-- ===== FOOTER ===== -->
+  </main>
   <footer class="footer">
     <div class="footer-noise"></div>
     <div class="footer-top">

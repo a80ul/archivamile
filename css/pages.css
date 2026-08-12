@@ -190,3 +190,13 @@
 .pg-rel b { font-family: var(--font-display); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; display: block; }
 .pg-rel span { font-size: 12px; color: var(--muted); margin-top: 8px; display: block; line-height: 1.5; }
 .pg-rel i { font-family: var(--font-mono); font-size: 9px; letter-spacing: .25em; color: var(--red); font-style: normal; display: block; margin-bottom: 10px; }
+
+/* ---------- LIGHT THEME: kontras teks merah ---------- */
+[data-theme="light"] .pg-crumbs i,
+[data-theme="light"] .pg-fig figcaption i,
+[data-theme="light"] .pg-section a.pg-link,
+[data-theme="light"] .pg-ans a,
+[data-theme="light"] .pg-byline i,
+[data-theme="light"] .pg-tip a,
+[data-theme="light"] .pg-section .fd-faq-item p a,
+[data-theme="light"] .pg-rel i { color: var(--red-dark); }

@@ -1,3 +1,33 @@
+/* ---------- FONTS (self-hosted, latin) ---------- */
+@font-face {
+  font-family: 'Archivo Black'; font-style: normal; font-weight: 400;
+  font-display: swap; src: url('../fonts/archivo-black.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk'; font-style: normal; font-weight: 300;
+  font-display: swap; src: url('../fonts/space-grotesk-300.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk'; font-style: normal; font-weight: 400;
+  font-display: swap; src: url('../fonts/space-grotesk-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk'; font-style: normal; font-weight: 500;
+  font-display: swap; src: url('../fonts/space-grotesk-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk'; font-style: normal; font-weight: 700;
+  font-display: swap; src: url('../fonts/space-grotesk-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400;
+  font-display: swap; src: url('../fonts/jetbrains-mono-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono'; font-style: normal; font-weight: 700;
+  font-display: swap; src: url('../fonts/jetbrains-mono-700.woff2') format('woff2');
+}
+
 /* ---------- THEME TOKENS ---------- */
 :root {
   --red: #e4002b;
@@ -1198,6 +1228,7 @@ body.entered .chip { opacity: 1; }
   font-size: 14px; color: var(--red);
   animation: preBlink 2.5s steps(2) infinite;
 }
+[data-theme="light"] .sec-num { color: var(--red-dark); }
 .sec-title {
   font-family: var(--font-display);
   font-size: clamp(32px, 5vw, 56px);
