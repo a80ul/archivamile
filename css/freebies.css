@@ -762,6 +762,30 @@ body.entered .fd-title .line-2 { animation: lineIn 1s cubic-bezier(.7,0,.3,1) .2
   border-left: 2px solid var(--red);
   padding-left: 12px;
 }
+.fd-modal-detail {
+  margin-top: 8px;
+  text-align: right;
+}
+.fd-modal-detail a {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: var(--red-soft, var(--red));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.fd-detail {
+  display: block;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .2em;
+  color: var(--muted);
+  padding: 8px 0 10px;
+  text-transform: uppercase;
+  transition: color .2s;
+}
+.fd-detail:hover { color: var(--text); }
 .fd-modal-actions {
   display: flex;
   gap: 12px;

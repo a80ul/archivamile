@@ -292,6 +292,8 @@ document.addEventListener('DOMContentLoaded', () => {
         mSize.textContent = card.dataset.size || '-';
         mLicense.textContent = card.dataset.license || '-';
         mDownload.setAttribute('href', btn.getAttribute('href'));
+        const mDetail = document.getElementById('mDetail');
+        if (mDetail) mDetail.setAttribute('href', card.dataset.detail || 'arsip');
         modal.classList.add('show');
         document.body.style.overflow = 'hidden';
         if (fdAgree) fdAgree.checked = false;
