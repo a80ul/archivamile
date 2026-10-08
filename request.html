@@ -1,374 +1,592 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#e4002b">
-  <!-- ===== GA4 ANALYTICS ===== -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKJG3S0D83"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    window.addEventListener('load', function () { gtag('config', 'G-QKJG3S0D83'); });
-  </script>
-  <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-  <link rel="preload" href="fonts/archivo-black.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/space-grotesk-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/jetbrains-mono-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/jetbrains-mono-700.woff2" as="font" type="font/woff2" crossorigin>
-  <title>REQUEST — Ajukan Saran Aset Desain Gratis | Arcivamile</title>
-  <meta name="description" content="Aset desain yang kamu cari belum ada di arsip Arcivamile? Ajukan saran aset gratis — logo, font, PNG atau JPG — dan ikut menentukan rilis berikutnya.">
-  <link rel="canonical" href="https://arcivamile.my.id/request">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="ARCIVAMILE">
-  <meta property="og:title" content="REQUEST — Aset Desain Gratis">
-  <meta property="og:description" content="Aset yang kamu cari belum ada? Kirim sarannya. Gratis, tanpa jaminan, tanpa biaya.">
-  <meta property="og:image" content="https://arcivamile.my.id/img/ogdata.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1362">
-  <meta property="og:image:height" content="639">
-  <meta property="og:url" content="https://arcivamile.my.id/request">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="REQUEST — Aset Desain Gratis">
-  <meta name="twitter:description" content="Aset yang kamu cari belum ada? Kirim sarannya. Gratis, tanpa jaminan, tanpa biaya.">
-  <meta name="twitter:image" content="https://arcivamile.my.id/img/ogdata.png">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#e4002b" />
+    <!-- ===== GA4 ANALYTICS ===== -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-QKJG3S0D83"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      window.addEventListener("load", function () {
+        gtag("config", "G-QKJG3S0D83");
+      });
+    </script>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link
+      rel="preload"
+      href="fonts/archivo-black.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/space-grotesk-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/space-grotesk-700.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/jetbrains-mono-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/jetbrains-mono-700.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <title>REQUEST — Ajukan Saran Aset Desain Gratis | Arcivamile</title>
+    <meta
+      name="description"
+      content="Aset desain yang kamu cari belum ada di arsip Arcivamile? Ajukan saran aset gratis — logo, font, PNG atau JPG — dan ikut menentukan rilis berikutnya."
+    />
+    <link rel="canonical" href="https://arcivamile.my.id/request" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ARCIVAMILE" />
+    <meta property="og:title" content="REQUEST — Aset Desain Gratis" />
+    <meta
+      property="og:description"
+      content="Aset yang kamu cari belum ada? Kirim sarannya. Gratis, tanpa jaminan, tanpa biaya."
+    />
+    <meta
+      property="og:image"
+      content="https://arcivamile.my.id/img/ogdata.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1362" />
+    <meta property="og:image:height" content="639" />
+    <meta property="og:url" content="https://arcivamile.my.id/request" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="REQUEST — Aset Desain Gratis" />
+    <meta
+      name="twitter:description"
+      content="Aset yang kamu cari belum ada? Kirim sarannya. Gratis, tanpa jaminan, tanpa biaya."
+    />
+    <meta
+      name="twitter:image"
+      content="https://arcivamile.my.id/img/ogdata.png"
+    />
+    <script type="application/ld+json">
       {
-        "@type": "WebSite",
-        "@id": "https://arcivamile.my.id/#website",
-        "name": "ARCIVAMILE",
-        "url": "https://arcivamile.my.id/",
-        "inLanguage": "id-ID"
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://arcivamile.my.id/request#breadcrumb",
-        "itemListElement": [
+        "@context": "https://schema.org",
+        "@graph": [
           {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Free Drop",
-            "item": "https://arcivamile.my.id/freedrop"
+            "@type": "WebSite",
+            "@id": "https://arcivamile.my.id/#website",
+            "name": "ARCIVAMILE",
+            "url": "https://arcivamile.my.id/",
+            "inLanguage": "id-ID"
           },
           {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Request Aset",
-            "item": "https://arcivamile.my.id/request"
+            "@type": "BreadcrumbList",
+            "@id": "https://arcivamile.my.id/request#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Free Drop",
+                "item": "https://arcivamile.my.id/freedrop"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Request Aset",
+                "item": "https://arcivamile.my.id/request"
+              }
+            ]
           }
         ]
       }
-    ]
-  }
-  </script>
-  <script>
-    (function () {
-      var t = localStorage.getItem('zzz-theme');
-      document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
-    })();
-  </script>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/freebies.css">
-</head>
-<body>
-
-  <!-- ===== INTRO ===== -->
-  <div class="intro" id="intro">
-    <div class="intro-noise"></div>
-    <div class="intro-halftone"></div>
-    <button class="intro-skip" id="introSkip">SKIP &#9658;</button>
-    <div class="intro-center">
-      <div class="intro-logo" id="introLogo">
-        <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
-          <defs>
-            <linearGradient id="lgIntro" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#ff5a75"/>
-              <stop offset="0.55" stop-color="#e4002b"/>
-              <stop offset="1" stop-color="#7a0013"/>
-            </linearGradient>
-          </defs>
-          <path d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z" fill="url(#lgIntro)"/>
-          <path d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
-          <path d="M24 12.5 L34.5 35.5 H30.4 L24 21 L17.6 35.5 H13.5 Z" fill="#fff"/>
-          <path d="M33.2 10 L35.6 12.4 L33.2 14.8 L30.8 12.4 Z" fill="#ffd400"/>
-        </svg>
-      </div>
-      <h1 class="intro-name" id="introName">REQUEST</h1>
-      <p class="intro-sub">FREE DROP // ARCIVAMILE</p>
-      <div class="intro-bar"><i></i></div>
-      <p class="intro-loading">MEMBUKA REQUEST<span class="load-dots">...</span></p>
-    </div>
-  </div>
-
-  <!-- ===== THEME FLASH ===== -->
-  <div class="theme-flash" id="themeFlash"></div>
-
-  <!-- ===== SCROLL PROGRESS ===== -->
-  <div class="scroll-progress"><i id="scrollBar"></i></div>
-
-  <!-- ===== NAVBAR ===== -->
-  <header class="navbar" id="navbar">
-    <div class="navbar-inner">
-      <span class="nav-corner nc-tl"></span>
-      <span class="nav-corner nc-tr"></span>
-      <span class="nav-corner nc-bl"></span>
-      <span class="nav-corner nc-br"></span>
-
-      <a href="freedrop" class="logo" data-logo>
-        <span class="logo-box">
+    </script>
+    <script>
+      (function () {
+        var t = localStorage.getItem("zzz-theme");
+        document.documentElement.setAttribute(
+          "data-theme",
+          t === "dark" ? "dark" : "light",
+        );
+      })();
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/freebies.css" />
+  </head>
+  <body>
+    <!-- ===== INTRO ===== -->
+    <div class="intro" id="intro">
+      <div class="intro-noise"></div>
+      <div class="intro-halftone"></div>
+      <button class="intro-skip" id="introSkip">SKIP &#9658;</button>
+      <div class="intro-center">
+        <div class="intro-logo" id="introLogo">
           <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
             <defs>
-              <linearGradient id="lgNav" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#ff5a75"/>
-                <stop offset="0.55" stop-color="#e4002b"/>
-                <stop offset="1" stop-color="#7a0013"/>
+              <linearGradient id="lgIntro" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff5a75" />
+                <stop offset="0.55" stop-color="#e4002b" />
+                <stop offset="1" stop-color="#7a0013" />
               </linearGradient>
             </defs>
-            <path d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z" fill="url(#lgNav)"/>
-            <path d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
-            <path d="M24 12.5 L34.5 35.5 H30.4 L24 21 L17.6 35.5 H13.5 Z" fill="#fff"/>
-            <path d="M33.2 10 L35.6 12.4 L33.2 14.8 L30.8 12.4 Z" fill="#ffd400"/>
+            <path
+              d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z"
+              fill="url(#lgIntro)"
+            />
+            <path
+              d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z"
+              fill="none"
+              stroke="rgba(255,255,255,.28)"
+              stroke-width="1"
+            />
+            <path
+              d="M24 12.5 L34.5 35.5 H30.4 L24 21 L17.6 35.5 H13.5 Z"
+              fill="#fff"
+            />
+            <path
+              d="M33.2 10 L35.6 12.4 L33.2 14.8 L30.8 12.4 Z"
+              fill="#ffd400"
+            />
           </svg>
-        </span>
-        <span class="logo-text">ARCIVAMILE<span class="logo-dot">.</span></span>
-      </a>
-      <span class="nav-tag"><i></i><b>FREE DROP</b> // 2026</span>
-      <span class="nav-stripe" aria-hidden="true"></span>
-
-      <nav class="nav-links" id="navLinks">
-        <a href="freedrop" class="nav-link" data-num="01"><span class="nav-txt">Free Drop</span></a>
-        <a href="arsip" class="nav-link" data-num="02"><span class="nav-txt">Arsip</span></a>
-        <a href="request" class="nav-link active" data-num="03"><span class="nav-txt">Request</span></a>
-        <span class="nav-indicator" id="navIndicator"></span>
-      </nav>
-
-      <div class="navbar-right">
-        <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema cahaya">
-          <span class="tt-sun">&#9728;</span>
-          <span class="tt-knob"></span>
-          <span class="tt-moon">&#9788;</span>
-        </button>
-        <a href="arsip" class="nav-cta">Unduh Aset<span class="cta-corners"></span></a>
-      </div>
-
-      <button class="burger" id="burger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <main>
-  <!-- ===== MOBILE MENU ===== -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-bg" id="mobileMenuBg"></div>
-    <nav class="mobile-menu-links">
-      <a href="freedrop" data-num="01">Free Drop</a>
-      <a href="arsip" data-num="02">Arsip</a>
-      <a href="request" data-num="03" class="active">Request</a>
-    </nav>
-    <div class="mobile-menu-foot">
-      <span>LINK AKTIF // REQUEST</span>
-      <span class="mm-static">&#9612;&#9612;&#9612;&#9612;&#9612;&#9612;&#9612;</span>
-    </div>
-  </div>
-
-  <!-- ===== HERO REQUEST ===== -->
-  <section class="fd-hero" id="top">
-    <div class="hero-halftone"></div>
-    <div class="fd-grid-bg" aria-hidden="true"></div>
-    <svg class="fd-reticle" viewBox="0 0 100 100" aria-hidden="true">
-      <g fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.2">
-        <circle cx="50" cy="50" r="20"/>
-        <circle cx="50" cy="50" r="42" stroke-dasharray="3 7" opacity=".4"/>
-        <line x1="50" y1="18" x2="50" y2="30"/>
-        <line x1="50" y1="70" x2="50" y2="82"/>
-        <line x1="18" y1="50" x2="30" y2="50"/>
-        <line x1="70" y1="50" x2="82" y2="50"/>
-      </g>
-    </svg>
-    <div class="fd-vert vert-l">REQUEST ASET // FREE</div>
-    <div class="fd-vert vert-r">KIRIM / ARCIVAMILE</div>
-
-    <div class="fd-hero-inner">
-      <div class="hero-brackets" aria-hidden="true">
-        <i class="br-tl"></i><i class="br-tr"></i><i class="br-bl"></i><i class="br-br"></i>
-      </div>
-      <p class="hero-kicker reveal">// FREE DROP — PERMINTAAN ASET</p>
-      <h1 class="fd-title">
-        <span class="line line-1">
-          <span class="glitch" data-text="REQUEST">REQUEST</span>
-        </span>
-        <span class="line line-2">
-          <span class="glitch" data-text="ASET.">ASET.</span>
-        </span>
-      </h1>
-      <p class="hero-sub reveal">Ada aset impian yang belum ada di arsip? <span class="hl">Tulis sarannya</span> — akan dirilis di update mendatang.</p>
-      <p class="fd-answer reveal">Halaman ini adalah tempat <b>request aset desain gratis</b> di Arcivamile. Aset yang kamu cari — logo, font, PNG, atau JPG — belum ada di arsip? Kirim saran singkat di bawah, dan saranmu akan dipertimbangkan untuk rilis berikutnya.</p>
-    </div>
-
-    <div class="fd-tape" aria-hidden="true"></div>
-    <div class="hero-fade" aria-hidden="true"></div>
-  </section>
-
-  <!-- ===== REQUEST ASET ===== -->
-  <section class="section fd-section" id="request">
-    <div class="section-head reveal">
-      <span class="sec-num">[ 01 ]</span>
-      <h2 class="sec-title">REQUEST<span class="sec-title-accent">SET</span></h2>
-      <div class="sec-line"></div>
-    </div>
-
-    <div class="fd-req-grid">
-      <div class="fd-req-form reveal">
-        <span class="fd-req-tag">FORM // SARAN ASET</span>
-        <h3>Ada aset yang <span class="hl">kamu mau?</span></h3>
-        <p>Tulis ide atau impian aset terbaikmu di bawah. Saran akan dipertimbangkan untuk dirilis.</p>
-
-        <span class="fd-req-sub">PILIH KATEGORI CEPAT</span>
-        <div class="fd-req-chips">
-          <button type="button" class="fd-req-chip" data-val="Aku mau logo (..)">Logo</button>
-          <button type="button" class="fd-req-chip" data-val="Aku mau font yang menarik">Font</button>
-          <button type="button" class="fd-req-chip" data-val="Butuh PNG Pohon yang HD">PNG</button>
-          <button type="button" class="fd-req-chip" data-val="Butuh gambar yang HD">JPG</button>
         </div>
-
-        <form id="reqForm" class="contact-form">
-          <label for="reqInput">NAMA ASET / KATEGORI</label>
-          <input type="text" id="reqInput" placeholder="contoh: logo pack kosmetik, font display, png elemen..." required>
-          <button type="submit" class="form-btn" id="reqBtn">KIRIM SARAN &#8594;</button>
-        </form>
-        <p class="fd-req-note">GRATIS // TANPA JAMINAN</p>
-        <div class="fd-req-ok" id="reqOk">
-          <span class="fd-req-check">
-            <svg viewBox="0 0 52 52" aria-hidden="true">
-              <circle class="fd-ck-circle" cx="26" cy="26" r="24"/>
-              <path class="fd-ck-mark" d="M14.5 27 L23 35.5 L38 17.5"/>
-            </svg>
-          </span>
-          <h4>SARAN MASUK DAFTAR RILIS!</h4>
-          <p>Terima kasih — saranmu dipertimbangkan untuk rilis berikutnya.</p>
-          <span class="fd-req-shine" aria-hidden="true"></span>
-        </div>
+        <h1 class="intro-name" id="introName">REQUEST</h1>
+        <p class="intro-sub">FREE DROP // ARCIVAMILE</p>
+        <div class="intro-bar"><i></i></div>
+        <p class="intro-loading">
+          MEMBUKA REQUEST<span class="load-dots">...</span>
+        </p>
       </div>
     </div>
-  </section>
 
-  <!-- ===== CTA ===== -->
-  <section class="fd-cta">
-    <div class="hero-halftone"></div>
-    <div class="fd-cta-inner reveal">
-      <span class="cp-label">FREE ASET DESAIN</span>
-      <h2 class="fd-cta-title">KEMBALI KE <span class="hl">ARSIP?</span></h2>
-      <p>Lihat lagi yuk kumpulan aset gratis yang sudah ada</p>
-      <div class="hero-cta">
-        <a href="arsip" class="btn btn-red">Lihat Arsip<span></span></a>
-        <a href="freedrop" class="btn btn-ghost">Kembali ke Free Drop<span></span></a>
-      </div>
-    </div>
-  </section>
+    <!-- ===== THEME FLASH ===== -->
+    <div class="theme-flash" id="themeFlash"></div>
 
-  <!-- ===== LANJUT KE FREE DROP ===== -->
-  <section class="fd-next">
-    <a href="freedrop" class="fd-next-link">
-      <span class="fd-next-label">KEMBALI // KE FREE DROP</span>
-      <span class="fd-next-title">FREE DROP<span class="fd-next-arrow">&#8594;</span></span>
-    </a>
-  </section>
+    <!-- ===== SCROLL PROGRESS ===== -->
+    <div class="scroll-progress"><i id="scrollBar"></i></div>
 
-  <!-- ===== FOOTER ===== -->
-  </main>
-  <footer class="footer">
-    <div class="footer-noise"></div>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo-row">
-          <span class="footer-logo">
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar" id="navbar">
+      <div class="navbar-inner">
+        <span class="nav-corner nc-tl"></span>
+        <span class="nav-corner nc-tr"></span>
+        <span class="nav-corner nc-bl"></span>
+        <span class="nav-corner nc-br"></span>
+
+        <a href="freedrop" class="logo" data-logo>
+          <span class="logo-box">
             <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
               <defs>
-                <linearGradient id="lgFoot" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#ff5a75"/>
-                  <stop offset="0.55" stop-color="#e4002b"/>
-                  <stop offset="1" stop-color="#7a0013"/>
+                <linearGradient id="lgNav" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#ff5a75" />
+                  <stop offset="0.55" stop-color="#e4002b" />
+                  <stop offset="1" stop-color="#7a0013" />
                 </linearGradient>
               </defs>
-              <path d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z" fill="url(#lgFoot)"/>
-              <path d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
-              <path d="M24 12.5 L34.5 35.5 H30.4 L24 21 L17.6 35.5 H13.5 Z" fill="#fff"/>
-              <path d="M33.2 10 L35.6 12.4 L33.2 14.8 L30.8 12.4 Z" fill="#ffd400"/>
+              <path
+                d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z"
+                fill="url(#lgNav)"
+              />
+              <path
+                d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z"
+                fill="none"
+                stroke="rgba(255,255,255,.28)"
+                stroke-width="1"
+              />
+              <path
+                d="M24 12.5 L34.5 35.5 H30.4 L24 21 L17.6 35.5 H13.5 Z"
+                fill="#fff"
+              />
+              <path
+                d="M33.2 10 L35.6 12.4 L33.2 14.8 L30.8 12.4 Z"
+                fill="#ffd400"
+              />
             </svg>
           </span>
-          <span class="footer-name">ARCIVAMILE<span class="logo-dot">.</span></span>
+          <span class="logo-text"
+            >ARCIVAMILE<span class="logo-dot">.</span></span
+          >
+        </a>
+        <span class="nav-tag"><i></i><b>FREE DROP</b> // 2026</span>
+        <span class="nav-stripe" aria-hidden="true"></span>
+
+        <nav class="nav-links" id="navLinks">
+          <a href="freedrop" class="nav-link" data-num="01"
+            ><span class="nav-txt">Free Drop</span></a
+          >
+          <a href="arsip" class="nav-link" data-num="02"
+            ><span class="nav-txt">Arsip</span></a
+          >
+          <a href="request" class="nav-link active" data-num="03"
+            ><span class="nav-txt">Request</span></a
+          >
+          <span class="nav-indicator" id="navIndicator"></span>
+        </nav>
+
+        <div class="navbar-right">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Ganti tema cahaya"
+          >
+            <span class="tt-sun">&#9728;</span>
+            <span class="tt-knob"></span>
+            <span class="tt-moon">&#9788;</span>
+          </button>
+          <a href="arsip" class="nav-cta"
+            >Unduh Aset<span class="cta-corners"></span
+          ></a>
         </div>
-        <p>Arsip aset desain gratis — logo, font, PNG &amp; JPG. 100% karya asli Arcivamile, tanpa bagikan ulang.</p>
+
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <div class="footer-col">
-        <span class="footer-col-title">NAVIGASI</span>
-        <a href="freedrop">Free Drop</a>
-        <a href="arsip">Arsip</a>
-        <a href="request">Request</a>
-        <a href="artikel/cara-download-aset-gratis">Panduan Download</a>
-        <a href="artikel/aset-gratis-untuk-komersial">Lisensi Komersial</a>
-        <a href="freedrop#donasi">Donasi</a>
+    </header>
+
+    <main>
+      <!-- ===== MOBILE MENU ===== -->
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-bg" id="mobileMenuBg"></div>
+        <nav class="mobile-menu-links">
+          <a href="freedrop" data-num="01">Free Drop</a>
+          <a href="arsip" data-num="02">Arsip</a>
+          <a href="request" data-num="03" class="active">Request</a>
+        </nav>
+        <div class="mobile-menu-foot">
+          <span>LINK AKTIF // REQUEST</span>
+          <span class="mm-static"
+            >&#9612;&#9612;&#9612;&#9612;&#9612;&#9612;&#9612;</span
+          >
+        </div>
       </div>
-      <div class="footer-col">
-        <span class="footer-col-title">KATEGORI</span>
-        <a href="arsip">Logo</a>
-        <a href="arsip">Font</a>
-        <a href="arsip">PNG</a>
-        <a href="arsip">JPG</a>
+
+      <!-- ===== HERO REQUEST ===== -->
+      <section class="fd-hero" id="top">
+        <div class="hero-halftone"></div>
+        <div class="fd-grid-bg" aria-hidden="true"></div>
+        <svg class="fd-reticle" viewBox="0 0 100 100" aria-hidden="true">
+          <g fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.2">
+            <circle cx="50" cy="50" r="20" />
+            <circle
+              cx="50"
+              cy="50"
+              r="42"
+              stroke-dasharray="3 7"
+              opacity=".4"
+            />
+            <line x1="50" y1="18" x2="50" y2="30" />
+            <line x1="50" y1="70" x2="50" y2="82" />
+            <line x1="18" y1="50" x2="30" y2="50" />
+            <line x1="70" y1="50" x2="82" y2="50" />
+          </g>
+        </svg>
+        <div class="fd-vert vert-l">REQUEST ASET // FREE</div>
+        <div class="fd-vert vert-r">KIRIM / ARCIVAMILE</div>
+
+        <div class="fd-hero-inner">
+          <div class="hero-brackets" aria-hidden="true">
+            <i class="br-tl"></i><i class="br-tr"></i><i class="br-bl"></i
+            ><i class="br-br"></i>
+          </div>
+          <p class="hero-kicker reveal">// FREE DROP — PERMINTAAN ASET</p>
+          <h1 class="fd-title">
+            <span class="line line-1">
+              <span class="glitch" data-text="REQUEST">REQUEST</span>
+            </span>
+            <span class="line line-2">
+              <span class="glitch" data-text="ASET.">ASET.</span>
+            </span>
+          </h1>
+          <p class="fd-answer reveal">
+            Halaman ini adalah tempat <b>request aset desain gratis</b> di
+            Arcivamile. Aset yang kamu cari — logo, font, PNG, atau JPG — belum
+            ada di arsip? Kirim saran singkat di bawah, dan saranmu akan
+            dipertimbangkan untuk rilis berikutnya.
+          </p>
+        </div>
+
+        <div class="fd-tape" aria-hidden="true"></div>
+        <div class="hero-fade" aria-hidden="true"></div>
+      </section>
+
+      <!-- ===== REQUEST ASET ===== -->
+      <section class="section fd-section" id="request">
+        <div class="section-head reveal">
+          <span class="sec-num">[ 01 ]</span>
+          <h2 class="sec-title">
+            REQUEST<span class="sec-title-accent">SET</span>
+          </h2>
+          <div class="sec-line"></div>
+        </div>
+
+        <div class="fd-req-grid">
+          <div class="fd-req-form reveal">
+            <span class="fd-req-tag">FORM // SARAN ASET</span>
+            <h3>Ada aset yang <span class="hl">kamu mau?</span></h3>
+            <p>
+              Tulis ide atau impian aset terbaikmu di bawah. Saran akan
+              dipertimbangkan untuk dirilis.
+            </p>
+
+            <span class="fd-req-sub">PILIH KATEGORI CEPAT</span>
+            <div class="fd-req-chips">
+              <button
+                type="button"
+                class="fd-req-chip"
+                data-val="Aku mau logo (..)"
+              >
+                Logo
+              </button>
+              <button
+                type="button"
+                class="fd-req-chip"
+                data-val="Aku mau font yang menarik"
+              >
+                Font
+              </button>
+              <button
+                type="button"
+                class="fd-req-chip"
+                data-val="Butuh PNG Pohon yang HD"
+              >
+                PNG
+              </button>
+              <button
+                type="button"
+                class="fd-req-chip"
+                data-val="Butuh gambar yang HD"
+              >
+                JPG
+              </button>
+            </div>
+
+            <form id="reqForm" class="contact-form">
+              <label for="reqInput">NAMA ASET / KATEGORI</label>
+              <input
+                type="text"
+                id="reqInput"
+                placeholder="contoh: logo pack kosmetik, font display, png elemen..."
+                required
+              />
+              <button type="submit" class="form-btn" id="reqBtn">
+                KIRIM SARAN &#8594;
+              </button>
+            </form>
+            <p class="fd-req-note">GRATIS // TANPA JAMINAN</p>
+            <div class="fd-req-ok" id="reqOk">
+              <span class="fd-req-check">
+                <svg viewBox="0 0 52 52" aria-hidden="true">
+                  <circle class="fd-ck-circle" cx="26" cy="26" r="24" />
+                  <path class="fd-ck-mark" d="M14.5 27 L23 35.5 L38 17.5" />
+                </svg>
+              </span>
+              <h4>SARAN MASUK DAFTAR RILIS!</h4>
+              <p>
+                Terima kasih — saranmu dipertimbangkan untuk rilis berikutnya.
+              </p>
+              <span class="fd-req-shine" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CTA ===== -->
+      <section class="fd-cta">
+        <div class="hero-halftone"></div>
+        <div class="fd-cta-inner reveal">
+          <span class="cp-label">FREE ASET DESAIN</span>
+          <h2 class="fd-cta-title">
+            KEMBALI KE <span class="hl">ARSIP?</span>
+          </h2>
+          <p>Lihat lagi yuk kumpulan aset gratis yang sudah ada</p>
+          <div class="hero-cta">
+            <a href="arsip" class="btn btn-red">Lihat Arsip<span></span></a>
+            <a href="freedrop" class="btn btn-ghost"
+              >Kembali ke Free Drop<span></span
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== LANJUT KE FREE DROP ===== -->
+      <section class="fd-next">
+        <a href="freedrop" class="fd-next-link">
+          <span class="fd-next-label">KEMBALI // KE FREE DROP</span>
+          <span class="fd-next-title"
+            >FREE DROP<span class="fd-next-arrow">&#8594;</span></span
+          >
+        </a>
+      </section>
+
+      <!-- ===== FOOTER ===== -->
+    </main>
+    <footer class="footer">
+      <div class="footer-noise"></div>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-row">
+            <span class="footer-logo">
+              <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
+                <defs>
+                  <linearGradient id="lgFoot" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#ff5a75" />
+                    <stop offset="0.55" stop-color="#e4002b" />
+                    <stop offset="1" stop-color="#7a0013" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z"
+                  fill="url(#lgFoot)"
+                />
+                <path
+                  d="M24 2.5 L43.5 13.3 V34.7 L24 45.5 L4.5 34.7 V13.3 Z"
+                  fill="none"
+                  stroke="rgba(255,255,255,.28)"
+                  stroke-width="1"
+                />
+                <path
+                  d="M24 12.5 L34.5 35.5 H30.4 L24 21 L17.6 35.5 H13.5 Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M33.2 10 L35.6 12.4 L33.2 14.8 L30.8 12.4 Z"
+                  fill="#ffd400"
+                />
+              </svg>
+            </span>
+            <span class="footer-name"
+              >ARCIVAMILE<span class="logo-dot">.</span></span
+            >
+          </div>
+          <p>
+            Arsip aset desain gratis — logo, font, PNG &amp; JPG. 100% personal
+            use & commercial use
+          </p>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">NAVIGASI</span>
+          <a href="freedrop">Free Drop</a>
+          <a href="arsip">Arsip</a>
+          <a href="request">Request</a>
+          <a href="artikel/cara-download-aset-gratis">Panduan Download</a>
+          <a href="artikel/aset-gratis-untuk-komersial">Lisensi Komersial</a>
+          <a href="freedrop#donasi">Donasi</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">KATEGORI</span>
+          <a href="arsip">Logo</a>
+          <a href="arsip">Font</a>
+          <a href="arsip">PNG</a>
+          <a href="arsip">JPG</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">LEGAL</span>
+          <a href="#" data-legal="terms">Syarat &amp; Ketentuan</a>
+          <a href="#" data-legal="privacy">Kebijakan Privasi</a>
+          <a href="#" data-legal="license">Lisensi Aset</a>
+          <a href="#" data-legal="copyright">Hak Cipta</a>
+        </div>
       </div>
-      <div class="footer-col">
-        <span class="footer-col-title">LEGAL</span>
-        <a href="#" data-legal="terms">Syarat &amp; Ketentuan</a>
-        <a href="#" data-legal="privacy">Kebijakan Privasi</a>
-        <a href="#" data-legal="license">Lisensi Aset</a>
-        <a href="#" data-legal="copyright">Hak Cipta</a>
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2026 Arcivamile. All Rights Reserved.</p>
+        <p class="footer-tip">
+          Semua aset 100% karya asli. Dilarang membagikan ulang dalam bentuk apa
+          pun.
+        </p>
+      </div>
+    </footer>
+
+    <!-- cursor -->
+    <div class="cursor" id="cursor" aria-hidden="true">
+      <svg
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient
+            id="curGrad"
+            x1="1"
+            y1="1"
+            x2="24"
+            y2="31"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0" stop-color="#ff5a4a" />
+            <stop offset=".55" stop-color="#e4002b" />
+            <stop offset="1" stop-color="#a3001f" />
+          </linearGradient>
+        </defs>
+        <path
+          class="cur-glow"
+          d="M1 1 L1 26.5 L9 18.5 L14.5 31 L20 28.5 L14.5 16.5 L24 16.5 Z"
+          fill="url(#curGrad)"
+          stroke="#ff3b30"
+          stroke-width="1.6"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        />
+        <path
+          class="cur-tip"
+          d="M2.6 2.6 L2.6 20.5 L7.6 15.5 Z"
+          fill="#ffb3a7"
+          opacity=".9"
+        />
+      </svg>
+    </div>
+
+    <!-- ===== POPUP LEGAL ===== -->
+    <div class="fd-legal-modal" id="fdLegalModal">
+      <div class="fd-legal-bg" id="fdLegalBg"></div>
+      <div class="fd-legal-panel">
+        <div class="fd-legal-head">
+          <span class="fd-legal-cat" id="legalCat">LEGAL</span>
+          <button class="fd-legal-close" id="legalClose" aria-label="Tutup">
+            &#10005;
+          </button>
+        </div>
+        <h3 id="legalTitle">Dokumen</h3>
+        <div class="fd-legal-body" id="legalBody"></div>
+        <p class="fd-legal-foot">Terakhir diperbarui: 2 Agustus 2026</p>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>Copyright &copy; 2026 Arcivamile. All Rights Reserved.</p>
-      <p class="footer-tip">Semua aset 100% karya asli. Dilarang membagikan ulang dalam bentuk apa pun.</p>
-    </div>
-  </footer>
 
-  <!-- cursor -->
-  <div class="cursor" id="cursor" aria-hidden="true">
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="curGrad" x1="1" y1="1" x2="24" y2="31" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#ff5a4a"/>
-          <stop offset=".55" stop-color="#e4002b"/>
-          <stop offset="1" stop-color="#a3001f"/>
-        </linearGradient>
-      </defs>
-      <path class="cur-glow" d="M1 1 L1 26.5 L9 18.5 L14.5 31 L20 28.5 L14.5 16.5 L24 16.5 Z" fill="url(#curGrad)" stroke="#ff3b30" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-      <path class="cur-tip" d="M2.6 2.6 L2.6 20.5 L7.6 15.5 Z" fill="#ffb3a7" opacity=".9"/>
-    </svg>
-  </div>
-
-  <!-- ===== POPUP LEGAL ===== -->
-  <div class="fd-legal-modal" id="fdLegalModal">
-    <div class="fd-legal-bg" id="fdLegalBg"></div>
-    <div class="fd-legal-panel">
-      <div class="fd-legal-head">
-        <span class="fd-legal-cat" id="legalCat">LEGAL</span>
-        <button class="fd-legal-close" id="legalClose" aria-label="Tutup">&#10005;</button>
-      </div>
-      <h3 id="legalTitle">Dokumen</h3>
-      <div class="fd-legal-body" id="legalBody"></div>
-      <p class="fd-legal-foot">Terakhir diperbarui: 2 Agustus 2026</p>
-    </div>
-  </div>
-
-  <script src="js/freebies.js"></script>
-</body>
+    <script src="js/freebies.js"></script>
+  </body>
 </html>
