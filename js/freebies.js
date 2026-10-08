@@ -7,12 +7,12 @@ const REQUEST_EMAIL = 'arcivamile@gmail.com';
 /* ---------- DATA WHAT'S NEW (isi data rilisan aset terbaru) ---------- */
 const WHATS_NEW = [
   {
-    date:  '7 AUG 2026',
+    date:  '8 OCT 2026',
     tag: 'PNG',
     color: '#ff5a75',
-    image: 'img/thumb/kaki5abc.jpg',
-    title: 'MASAKAN KAKI 5 - LITE',
-    desc: 'Rilisan terbaru di kategori PNG: Lengkapi desainmu sekarang juga, yuk liat rilisan terbaru MASAKAN KAKI 5 - LITE'
+    image: 'img/thumb/baararia.png',
+    title: 'BAARA RIA - FREE ASSET DESIGN',
+    desc: 'Rilisan terbaru di kategori PNG: Semua aset desain dari Baara Ria'
   }
 ];
 
